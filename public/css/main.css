@@ -1,0 +1,92 @@
+@font-face {
+	font-family: Montserrat;
+	src: url('/fonts/montserrat.ttf');
+}
+
+@font-face {
+	font-family: Oswald;
+	src: url('/fonts/oswald.ttf');
+}
+
+.mont {
+	font-family: Montserrat, 'Arial', sans-serif;
+}
+
+.oswald {
+	font-family: Oswald, 'Arial', sans-serif;
+}
+
+.header {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 60vh;
+}
+
+.header h1 {
+	font-size: 100px;
+}
+
+.home-bg h1 {
+	font-size: 144px;
+}
+
+.header.home-bg {
+	background-image: url('/images/index/home-bg.jpg');
+}
+
+.header.recipe-bg {
+	background-image: url('/images/recipes/recipe-bg.jpg');
+}
+
+.header.about-bg {
+	background-image: url('/images/about/about-bg.jpg/');
+}
+
+.content-image {
+	min-width: 40vw;
+}
+
+@media print {
+	#recipe-section {
+		border: none !important;
+		box-shadow: none !important;
+		background: none !important;
+	}
+
+	#recipe-section img {
+		width: 200px !important;
+		height: auto !important;
+	}
+
+	#recipe-section p, #recipe-section li {
+		font-size: 16px !important;
+		color: black !important;
+		margin: 0;
+	}
+
+	#recipe-section h3, #recipe-section h4 {
+		color: black !important;
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	.header.home-bg {
+		background-image: url('/images/index/home-bg-sm.jpg/');
+	}
+
+	.header.recipe-bg {
+		background-image: url('/images/recipes/recipe-bg-sm.jpg/');
+	}
+
+	.header.about-bg {
+		background-image: url('/images/about/about-bg-sm.jpg/');
+	}
+
+	.header h1, .home-bg h1 {
+		font-size: 72px;
+	}
+}
+
