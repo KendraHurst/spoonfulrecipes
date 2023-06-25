@@ -48,6 +48,10 @@
 	min-width: 40vw;
 }
 
+#editor {
+	height: 150px;
+}
+
 @media print {
 	#recipe-section {
 		border: none !important;
