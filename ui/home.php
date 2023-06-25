@@ -11,8 +11,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
 
 <header class="header home-bg oswald d-flex flex-column text-center align-items-center justify-content-center mt-5">
-	<h1 class="text-white">Spoonful</h1>
-	<h2 class="text-light fs-2">Easy recipes, one Spoonful at a time</h2>
+	<h1 class="text-white">Frugal Spoonful</h1>
+	<h2 class="text-light fs-2">Easy frugal recipes, one Spoonful at a time</h2>
 </header>
 
 <section>
