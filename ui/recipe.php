@@ -2,11 +2,11 @@
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
-	'canonical' => 'https://www.frugalspoonful.com/recipes/' . $recipe_slug
+	'canonical' => 'https://www.frugalspoonful.com/recipes/' . Web::instance()->slug($recipe['name']),
+	'keywords' => $recipe['keywords'] ?: ''
 ];
 
-$ingredients = json_decode(htmlspecialchars_decode($recipe['ingredients']), true)['ingredients'];
-$directions = json_decode(htmlspecialchars_decode($recipe['directions']), true)['directions'];
+$notes = [];
 
 $f3->set('page', $page);
 echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
@@ -55,32 +55,46 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<p class="m-0"><b>Total Time: </b><?=$recipe['prep_time'] + $recipe['cook_time'];?> min</p>
 				<p class="m-0"><b>Yield: </b><?=$recipe['yield'];?></p>
 				<?php if(isset($recipe['calories'])) { ?>
-				<p class="m-0"><b>Calories: </b>Calories</p>
+				<p class="m-0"><b>Calories: </b><?=$recipe['calories'];?></p>
 				<?php }
 				if(isset($recipe['category'])) { ?>
-				<p class="m-0"><b>Type: </b>Category</p>
+				<p class="m-0"><b>Type: </b><?=$recipe['category'];?></p>
 				<?php } ?>
 			</div>
 			<div class="col-12 col-md-6 px-3 px-4 px-md-4 pt-md-4">
 				<h4>Ingredients</h4>
 				<ul class="my-3 list-group list-group-flush">
 				<?php foreach ($ingredients as $ingredient) { ?>
-					<li class="list-group-item px-0 bg-light"><b><?=$ingredient['measure'];?></b> <?=$ingredient['item'];?></li>
+					<li class="list-group-item px-0 bg-light">
+					<b><?=$ingredient['measure'];?></b> <?=$ingredient['ingredient'];?>
+					<?php if($ingredient['note']) {
+						$notes[] = $ingredient['note'];
+						echo(str_repeat('*', count($notes)));
+					} ?>
+					</li>
 				<?php } ?>
 				</ul>
 			</div>
 			<div class="col-12 px-3 pt-3 px-md-4 pt-md-4">
 				<h4>Directions</h4>
 				<ol class="my-3 list-group list-group-flush list-group-numbered bg-light">
-					<?php foreach ($directions as $key=>$directions) { ?>
-					<li class="list-group-item px-0 bg-light" id="<?=$key;?>"><?=$directions['text'];?></li>
+					<?php foreach ($directions as $key=>$direction) { ?>
+					<li class="list-group-item px-0 bg-light" id="<?=$key;?>">
+					<?=$direction['text'];?>
+					<?php if($direction['note']) {
+						$notes[] = $direction['note'];
+						echo(str_repeat('*', count($notes)));
+					} ?>
+					</li>
 					<?php } ?>
 				</ol>
 			</div>
-			<?php if ($recipe['notes']) { ?>
+			<?php if ($notes) { ?>
 			<div class="col-12 px-3 pt-3 px-md-4 pt-md-4">
 				<h5>Notes</h5>
-				<p><?=$recipe['notes'];?></p>
+				<?php foreach($notes as $key=>$note) { ?>
+					<p><?=str_repeat('*', $key + 1) . $note;?></p>
+				<?php } ?>
 			</div>
 			<?php } ?>
 		<section>
