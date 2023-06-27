@@ -9,7 +9,7 @@ class VerifyLogin
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$crypt = \Bcrypt::instance();
-		$user_pw = $mapper->select('password', array('email = ?', $username));
+		$user_pw = $mapper->select('password', array('email = ? and access_level = \'admin\'', $username));
 
 		if(!$user_pw) {
 			$login_valid = false;
