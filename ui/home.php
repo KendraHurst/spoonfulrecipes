@@ -19,49 +19,21 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<h3 class="text-primary oswald fs-1 fw-bold mx-4 mx-md-5 my-3">Latest Recipes</h3>
 	<div class="row mx-4 mx-md-5 my-3">
-		<div class="card recipe-card col-12 col-md-6 col-xl-3 border-0 p-1 p-xl-4 justify-between">
-		  <img src="/images/recipes/congee/sized/main.4x3.jpg" class="card-img-top" alt="Congee">
-		  <div class="card-body text-center bg-light">
-			<h3 class="card-title oswald">Recipe Name</h3>
-		  </div>
-		  <div class="card-footer text-center border-0 bg-light rounded-bottom">
-			<p class="card-text text-start">This is a description of a recipe</p>
-			<a href="#" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
-		  </div>
-		</div>	
 
+	<?php foreach($recipes as $recipe) {
+		$slug = Web::instance()->slug($recipe['name']);
+		?>
 		<div class="card recipe-card col-12 col-md-6 col-xl-3 border-0 p-1 p-xl-4 justify-between">
-		  <img src="/images/recipes/congee/sized/main.4x3.jpg" class="card-img-top" alt="Congee">
+		  <img src="/images/recipes/<?=$slug;?>/sized/main.4x3.jpg" class="card-img-top" alt="Congee">
 		  <div class="card-body text-center bg-light">
-			<h3 class="card-title oswald">Recipe Name</h3>
+			<h3 class="card-title oswald"><?=$recipe['name'];?></h3>
 		  </div>
 		  <div class="card-footer text-center border-0 bg-light rounded-bottom">
-			<p class="card-text text-start">This is a description of a recipe</p>
-			<a href="#" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
+			<p class="card-text text-start"><?=$recipe['description'];?></p>
+			<a href="recipes/<?=$slug;?>" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
 		  </div>
 		</div>	
-
-		<div class="card recipe-card col-12 col-md-6 col-xl-3 border-0 p-1 p-xl-4 justify-between">
-		  <img src="/images/recipes/congee/sized/main.4x3.jpg" class="card-img-top" alt="Congee">
-		  <div class="card-body text-center bg-light">
-			<h3 class="card-title oswald">Recipe Name</h3>
-		  </div>
-		  <div class="card-footer text-center border-0 bg-light rounded-bottom">
-			<p class="card-text text-start">This is a description of a recipe</p>
-			<a href="#" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
-		  </div>
-		</div>	
-
-		<div class="card recipe-card col-12 col-md-6 col-xl-3 border-0 p-1 p-xl-4 justify-between">
-		  <img src="/images/recipes/congee/sized/main.4x3.jpg" class="card-img-top" alt="Congee">
-		  <div class="card-body text-center bg-light">
-			<h3 class="card-title oswald">Recipe Name</h3>
-		  </div>
-		  <div class="card-footer text-center border-0 bg-light rounded-bottom">
-			<p class="card-text text-start">This is a description of a recipe</p>
-			<a href="#" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
-		  </div>
-		</div>	
+	<?php } ?>
 
 	</div>
 </section>
