@@ -42,15 +42,15 @@ function addField(plusElement, type) {
 	formItem.classList.add("input-group", "mb-2");
 
 	plus.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-	plus.innerHTML = "+";
+	plus.innerHTML = "<i class='fa-solid fa-plus'></i>";
 	plus.setAttribute("onclick", "addField(this, 'ingredient')");
 
 	minus.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-	minus.innerHTML = "-";
+	minus.innerHTML = "<i class='fa-solid fa-minus'></i>";
 	minus.setAttribute("onclick", "removeField(this)");
 
 	up.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-	up.innerHTML = "^";
+	up.innerHTML = "<i class='fa-solid fa-arrow-up'></i>";
 	up.setAttribute("onclick", "moveFieldUp(this)");
 
 	for(let i=0; i < fields.length; i++) {
@@ -68,7 +68,7 @@ function addField(plusElement, type) {
 	if(!itemList.lastElementChild.contains(plusElement)) {
 		const down = document.createElement("span");
 		down.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-		down.innerHTML = "v";
+		down.innerHTML = "<i class='fa-solid fa-arrow-down'></i>";
 		down.setAttribute("onclick", "moveFieldDown(this)");
 
 		formItem.appendChild(down);
@@ -77,16 +77,16 @@ function addField(plusElement, type) {
 	if(itemList.childElementCount === 1) {
 		const prevMinus = document.createElement("span");
 		prevMinus.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-		prevMinus.innerHTML = "-";
+		prevMinus.innerHTML = "<i class='fa-solid fa-minus'></i>";
 		prevMinus.setAttribute("onclick", "removeField(this)");
 		plusElement.after(prevMinus);
 	}
 
 	//Add down arrow to parent input if it doesn't have it already
-	if(plusParent.lastChild.innerHTML !== "v") {
+	if(!plusParent.querySelector(".fa-arrow-down")) {
 		const prevDown = document.createElement("span");
 		prevDown.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-		prevDown.innerHTML = "v";
+		prevDown.innerHTML = "<i class='fa-solid fa-arrow-down'></i>";
 		prevDown.setAttribute("onclick", "moveFieldDown(this)");
 		plusParent.appendChild(prevDown);
 	}
@@ -123,7 +123,7 @@ function moveFieldUp(upElement) {
 		if(itemList.childElementCount !== 2) {
 			const down = document.createElement("span");
 			down.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-			down.innerHTML = "v";
+			down.innerHTML = "<i class='fa-solid fa-arrow-down'></i>";
 			down.setAttribute("onclick", "moveFieldDown(this)");
 
 			upParent.appendChild(down);
@@ -155,7 +155,7 @@ function moveFieldDown(downElement) {
 		if(itemList.childElementCount !== 2) {
 			const up = document.createElement("span");
 			up.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
-			up.innerHTML = "^";
+			up.innerHTML = "<i class='fa-solid fa-arrow-up'></i>";
 			up.setAttribute("onclick", "moveFieldUp(this)");
 
 			downParent.insertBefore(up, downElement);
