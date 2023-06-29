@@ -33,17 +33,13 @@ function addField(plusElement, type) {
 	const plusParent = plusElement.parentElement;
 	const itemList = plusParent.parentElement;
 	const formItem = document.createElement("div");
-	const field = document.createElement("input");
+	const fields = plusParent.querySelectorAll("input, textarea");
+	let field;
 	const plus = document.createElement("span");
 	const minus = document.createElement("span");
 	const up = document.createElement("span");
 
 	formItem.classList.add("input-group", "mb-2");
-
-	field.classList.add("form-control");
-	field.setAttribute("type", "text");
-	field.setAttribute("required", true);
-	field.setAttribute("name", type + "s[]");
 
 	plus.classList.add("btn", "btn-primary", "btn-outline-light", "text-white");
 	plus.innerHTML = "+";
@@ -57,7 +53,13 @@ function addField(plusElement, type) {
 	up.innerHTML = "^";
 	up.setAttribute("onclick", "moveFieldUp(this)");
 
-	formItem.appendChild(field);
+	for(let i=0; i < fields.length; i++) {
+		field = fields[i].cloneNode();
+		field.value="";
+
+		formItem.appendChild(field);
+	}
+
 	formItem.appendChild(plus);
 	formItem.appendChild(minus);
 	formItem.appendChild(up);
@@ -94,6 +96,7 @@ function addField(plusElement, type) {
 
 function removeField(minusElement) {
 	const minusParent = minusElement.parentElement;
+	const fields = minusParent.querySelectorAll("input, textarea");
 	const itemList = minusParent.parentElement;
 
 	if (itemList.lastElementChild.contains(minusParent)) {
@@ -105,7 +108,7 @@ function removeField(minusElement) {
 	minusParent.remove();
 
 	if(itemList.childElementCount === 1) {
-		for (let i = 0; i < (itemList.firstElementChild.childElementCount - 1); i++) {
+		for (let i = 0; i < (itemList.firstElementChild.childElementCount - fields.length); i++) {
 			itemList.firstElementChild.lastElementChild.remove()
 		}
 	}
@@ -138,7 +141,7 @@ function moveFieldUp(upElement) {
 			upParent.appendChild(downElement);
 			downParent.appendChild(upElement);
 		} else {
-			putBefore.appendChild(upElement);
+			putBefore.insertBefore(upElement, putBefore.lastElementChild);
 		}
 	}
 }
@@ -155,7 +158,7 @@ function moveFieldDown(downElement) {
 			up.innerHTML = "^";
 			up.setAttribute("onclick", "moveFieldUp(this)");
 
-			downParent.appendChild(up);
+			downParent.insertBefore(up, downElement);
 			putAfter.lastElementChild.previousElementSibling.remove();
 		}
 	}
@@ -167,8 +170,8 @@ function moveFieldDown(downElement) {
 		if(itemList.childElementCount === 2) {
 			const upParent = downParent.nextElementSibling;
 			const upElement = upParent.lastElementChild;
-			upParent.appendChild(downElement);
 			downParent.appendChild(upElement);
+			upParent.appendChild(downElement);
 		} else {
 			putAfter.append(downElement);
 		}

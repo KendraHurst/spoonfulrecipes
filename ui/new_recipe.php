@@ -12,13 +12,19 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 <script src="js/new_recipe.js"></script>
+<style>
+	#directions-list .btn {
+		line-height: 48px;
+	}
+</style>
 
 <div style="height: 100px;">
 </div>
 
 <div class="container">
-	<form action="add_recipe" method="post">
+	<form action="add-recipe" method="post" id="new-recipe">
 
 		<label for="name" class="form-label">Name<span style="color:red;">*</span></label>
 		<input type="text" name="name" maxlength="100" class="form-control mb-3" required>
@@ -67,19 +73,29 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<input type="text" name="content" hidden>
 		<div id="editor" class="mb-3"></div>
 
-		<label for="ingredients[]" class="form-label">Ingredients</label>
+		<div class="form-label mt-3">Ingredients</div>
+		<label hidden for="ingredients-measure[]">Ingredient Measurement</label>
+		<label hidden for="ingredients-ingredients[]">Ingredient</label>
+		<label hidden for="ingredients-notes[]">Ingredient Notes</label>
 		<div id="ingredient-list" class="mb-3">
-			<div class="input-group mb-2 ingredient">
-				<input type="text" name="ingredients[]" class="form-control" required>
-				<span onclick="addField(this, 'ingredient')" class="btn btn-primary btn-outline-light text-white">+</span>
+			<div class="input-group mb-2">
+				<input type="text" name="ingredients-measures[]" class="form-control" placeholder="Measure*" required>
+				<input type="text" name="ingredients-ingredients[]" class="form-control" placeholder="Ingredient*" required>
+				<input type="text" name="ingredients-notes[]" class="form-control notes" placeholder="Notes">
+				<span onclick="addField(this, 'ingredient')" class="btn btn-primary btn-outline-light text-white"><i class="fa-solid fa-plus"></i></span>
 			</div>
 		</div>
 
-		<label for="directions[]" class="form-label">Directions</label>
+		<div class="form-label">Directions</div>
+		<label hidden for="directions-name[]">Direction Name</label>
+		<label hidden for="directions-text[]">Direction</label>
+		<label hidden for="directions-notes[]">Direction Note</label>
 		<div id="directions-list" class="mb-3">
-			<div class="input-group mb-2 direction">
-				<input type="text" name="directions[]" class="form-control" required>
-				<span onclick="addField(this, 'direction')" class="btn btn-primary btn-outline-light text-white">+</span>
+			<div class="input-group mb-2">
+				<textarea name="directions-name[]" class="form-control" placeholder="Name*" rows="2" required></textarea>
+				<textarea name="directions-text[]" maxlength="500" class="form-control" rows="2" placeholder="Direction*" required></textarea>
+				<textarea type="text" name="directions-notes[]" class="form-control notes" rows="2" placeholder="Notes"></textarea>
+				<span onclick="addField(this, 'direction')" class="btn btn-primary btn-outline-light text-white"><i class="fa-solid fa-plus"></i></span>
 			</div>
 		</div>
 
