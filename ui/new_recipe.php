@@ -99,15 +99,20 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			</div>
 		</div>
 
-		<input type="submit" value="Submit" class="btn btn-primary">
+		<label for="image" class="form-label">Image<span style="color:red;">*</span></label>
+		<div class="input-group mb-3">
+			<div class="input-group-text bg-light text-primary"><i class="fa-solid fa-image"></i></div>
+			<input type="file" name="image" accept="image/png, image/jpeg" class="form-control">
+		</div>
+
+		<div class="form-check form-switch mb-3">
+			<input class="form-check-input" type="checkbox" role="switch" name="active">
+			<label class="form-check-label" for="active">Active</label>
+		</div>
+
+		<input type="submit" value="Submit" class="btn btn-primary mb-5">
 	</form>
 </div>
-
-<script>
-</script>
-
-<script>
-</script>
 
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
