@@ -1,32 +1,13 @@
-//Quill content editor
-document.addEventListener("DOMContentLoaded", () => {
-	const quill = new Quill('#editor', {
-	  modules: {
-		toolbar: [
-		  [{ 'header': [2, 3, 4, 5, 6, false] }],
-		  ['bold', 'italic', 'underline'],
-		  ['link', 'blockquote', 'image'],
-		  [{ list: 'ordered' }, { list: 'bullet' }],
-		  ['clean']
-		]
-	  },
-	  placeholder: 'Content for the recipe page...',
-	  theme: 'snow'
-	});
+//CKEditor
+window.onload = () => {
+	ClassicEditor
+		.create( document.querySelector( '#editor' ), {
+		})
+		.catch( error => {
+			console.error( error );
+		} );
+};
 
-	const form = document.querySelector('form');
-	form.onsubmit = function() {
-	  // Populate hidden form on submit
-	  var about = document.querySelector('input[name=content]');
-	  about.value = JSON.stringify(quill.getContents());
-
-	  console.log("Submitted", $(form).serialize(), $(form).serializeArray());
-
-	  // No back end to actually submit to!
-	  alert('Open the console to see the submit data!')
-	  return false;
-	};
-});
 //Dynamically add/remove ingredients
 function addField(plusElement, type) {
 

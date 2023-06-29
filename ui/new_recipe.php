@@ -11,12 +11,15 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 <?php
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
 <script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 <script src="js/new_recipe.js"></script>
 <style>
 	#directions-list .btn {
 		line-height: 48px;
+	}
+	.ck-content {
+		height: 300px;
 	}
 </style>
 
@@ -70,8 +73,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<textarea name="keywords" maxlength="500" class="form-control mb-3" rows="2"></textarea>
 
 		<div class="form-label">Recipe Content<span style="color:red;">*</span></div>
-		<input type="text" name="content" hidden>
-		<div id="editor" class="mb-3"></div>
+		<textarea name="content" id="editor" class="form-control mb-3">
+		</textarea>
 
 		<div class="form-label mt-3">Ingredients</div>
 		<label hidden for="ingredients-measure[]">Ingredient Measurement</label>
