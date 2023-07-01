@@ -15,8 +15,19 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 <script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 <script src="js/new_recipe.js"></script>
 <style>
-	#directions-list .btn {
+	#directions-list .btn, #directions-list input {
 		line-height: 48px;
+	}
+	#directions-list {
+		counter-reset: direction;
+	}
+	#directions-list .input-group {
+		counter-increment: direction;
+	}
+	#directions-list .input-group::before {
+		content: counter(direction)". ";
+		line-height: 62px;
+		margin-right: 10px;
 	}
 	.ck-content {
 		height: 300px;
@@ -33,7 +44,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<input type="text" name="name" maxlength="100" class="form-control mb-3" required>
 
 		<label for="author" class="form-label">Author</label>
-		<input type="text" name="author" class="form-control mb-3" value="<?=$author;?>" disabled>
+		<input type="text" name="author" class="form-control mb-3" value="<?=$author;?>" readonly>
 
 		<label for="title" class="form-label">Title<span style="color:red;">*</span></label>
 		<input type="text" name="title" maxlength="150" class="form-control mb-3" required>
@@ -56,8 +67,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<label for="publish" class="form-label">Publish Date<span style="color:red;">*</span></label>
 		<input type="date" name="publish" class="form-control mb-3" value="<?=date('Y-m-d');?>" required>
 
-		<label for="category" class="form-label">Category</label>
-		<select name="category" class="form-control mb-3" multiple>
+		<label for="category[]" class="form-label">Category</label>
+		<select name="category[]" class="form-control mb-3" multiple>
 			<option value="breakfast">Breakfast</option>
 			<option value="entree">Entree</option>
 			<option value="dessert">Dessert</option>
@@ -72,7 +83,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<label for="keywords" class="form-label">Keywords</label>
 		<textarea name="keywords" maxlength="500" class="form-control mb-3" rows="2"></textarea>
 
-		<div class="form-label">Recipe Content<span style="color:red;">*</span></div>
+		<label for="content" class="form-label">Recipe Content<span style="color:red;">*</span></label>
 		<textarea name="content" id="editor" class="form-control mb-3">
 		</textarea>
 
@@ -82,9 +93,13 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<label hidden for="ingredients-notes[]">Ingredient Notes</label>
 		<div id="ingredient-list" class="mb-3">
 			<div class="input-group mb-2">
-				<input type="text" name="ingredients-measures[]" class="form-control" placeholder="Measure*" required>
+				<input type="text" name="ingredients-measures[]" class="form-control" placeholder="Measure*" style="max-width:150px!important" required>
 				<input type="text" name="ingredients-ingredients[]" class="form-control" placeholder="Ingredient*" required>
 				<input type="text" name="ingredients-notes[]" class="form-control notes" placeholder="Notes">
+				<select name="ingredients-optional[]" class="form-select" style="max-width:100px!important">
+					<option selected value="false">Req</option>
+					<option value="true">Opt</option>
+				</select>
 				<span onclick="addField(this, 'ingredient')" class="btn btn-primary btn-outline-light text-white"><i class="fa-solid fa-plus"></i></span>
 			</div>
 		</div>
@@ -98,6 +113,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<textarea name="directions-name[]" class="form-control" placeholder="Name*" rows="2" required></textarea>
 				<textarea name="directions-text[]" maxlength="500" class="form-control" rows="2" placeholder="Direction*" required></textarea>
 				<textarea type="text" name="directions-notes[]" class="form-control notes" rows="2" placeholder="Notes"></textarea>
+				<input type="file" name="directions-image[]" accept="image/png, image/jpeg" class="form-control" style="max-width:270px;">
 				<span onclick="addField(this, 'direction')" class="btn btn-primary btn-outline-light text-white"><i class="fa-solid fa-plus"></i></span>
 			</div>
 		</div>

@@ -42,7 +42,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<div class="col-12 col-lg-10 col-xl-8">
 		<main class="recipe-content m-4 m-md-5 d-print-none">
-		<?=Markdown::instance()->convert($recipe['content']);?>
+		<?=$recipe['content'];?>
 		</main>
 
 		<section id="recipe-section" class="row m-4 m-md-5 rounded-3 bg-light fs-5">

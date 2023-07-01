@@ -14,7 +14,7 @@ function addField(plusElement, type) {
 	const plusParent = plusElement.parentElement;
 	const itemList = plusParent.parentElement;
 	const formItem = document.createElement("div");
-	const fields = plusParent.querySelectorAll("input, textarea");
+	const fields = plusParent.querySelectorAll("input, textarea, select");
 	let field;
 	const plus = document.createElement("span");
 	const minus = document.createElement("span");
@@ -35,8 +35,11 @@ function addField(plusElement, type) {
 	up.setAttribute("onclick", "moveFieldUp(this)");
 
 	for(let i=0; i < fields.length; i++) {
-		field = fields[i].cloneNode();
-		field.value="";
+		field = fields[i].cloneNode(true);
+		console.log(field.tagName);
+		if (field.tagName !== "SELECT") {
+			field.value="";
+		}
 
 		formItem.appendChild(field);
 	}
@@ -77,7 +80,7 @@ function addField(plusElement, type) {
 
 function removeField(minusElement) {
 	const minusParent = minusElement.parentElement;
-	const fields = minusParent.querySelectorAll("input, textarea");
+	const fields = minusParent.querySelectorAll("input, textarea, select");
 	const itemList = minusParent.parentElement;
 
 	if (itemList.lastElementChild.contains(minusParent)) {

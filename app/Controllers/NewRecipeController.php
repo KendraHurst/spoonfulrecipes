@@ -25,6 +25,7 @@ class NewRecipeController
 		if(isset($_SESSION['user'])) {
 			$add = new AddRecipe();
 			$add->addRecipe($f3);
+			header('Location: http://localhost:8000/');
 		} else {
 			header('Location: http://localhost:8000/login?from=new-recipe');
 		}
