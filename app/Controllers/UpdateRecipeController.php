@@ -7,6 +7,7 @@ use Models\Users;
 use Models\Recipe;
 use Models\Ingredients;
 use Models\Directions;
+use Models\UpdateRecipe;
 
 class UpdateRecipeController 
 {
@@ -45,7 +46,9 @@ class UpdateRecipeController
 	public function update_recipe($f3)
 	{
 		if(isset($_SESSION['user'])) {
-			print_r($_POST);
+			$update = new UpdateRecipe();
+			$update->editRecipe($f3);
+			header('Location: http://localhost:8000/');
 		} else {
 			header('Location: http://localhost:8000/login?from=edit-recipe');
 		}
