@@ -12,6 +12,7 @@ $f3->set('page', $page);
 echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
+<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 
 <style>
 	.recipe-page-bg {
@@ -35,17 +36,14 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<button class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="document.getElementById('recipe-section').scrollIntoView({behavior: 'smooth'})">Jump to Recipe</button>
 </div>
 
-<div class="row">
+<div class="container">
 
-	<div class="col-0 col-lg-1 col-xl-2">
-	</div>
-
-	<div class="col-12 col-lg-10 col-xl-8">
-		<main class="recipe-content m-4 m-md-5 d-print-none">
-		<?=$recipe['content'];?>
+	<div class="col-12">
+		<main class="recipe-content my-4 my-md-5 d-print-none">
+		<?=$view->raw($recipe['content']);?>
 		</main>
 
-		<section id="recipe-section" class="row m-4 m-md-5 rounded-3 bg-light fs-5">
+		<section id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
 			<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="col-12 col-md-6 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
 			<div class="col-12 col-md-6 p-3 p-md-4">
 				<h3 class="oswlad fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
@@ -93,16 +91,56 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<div class="col-12 px-3 pt-3 px-md-4 pt-md-4">
 				<h5>Notes</h5>
 				<?php foreach($notes as $key=>$note) { ?>
-					<p><?=str_repeat('*', $key + 1) . $note;?></p>
+					<p><?=str_repeat('*', $key + 1) . ' ' . $note;?></p>
 				<?php } ?>
 			</div>
 			<?php } ?>
-		<section>
-	</div>
+		</section>
 
-	<div class="col-0 col-lg-1 col-xl-2">
-	</div>
+		<section class="mx-2 my-4">
+			<h2 class="mb-3">Leave a Review</h2>
+			<form action="/add-review" method="post">
+				<input hidden name="recipe-id" value="<?=$recipe['id'];?>">
+				<input hidden name="recipe-page" value="<?=Web::instance()->slug($recipe['name']);?>">
 
+				<div class="form-label">Star Rating*</div>
+				<div class="star-rating form-check-inline text-primary mb-3">
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="1" id="rating-1" required>
+					<label for="rating-1" class="rating-star"></label>
+
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="2" id="rating-2" required>
+					<label for="rating-2" class="rating-star"></label>
+
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="3" id="rating-3" required>
+					<label for="rating-3" class="rating-star"></label>
+
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="4" id="rating-4" required>
+					<label for="rating-4" class="rating-star"></label>
+
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="5" id="rating-5" required>
+					<label for="rating-5" class="rating-star"></label>
+				</div>
+				<br />
+
+				<div class="row">
+					<label for="review-name" class="form-label col-6">
+						Name*
+						<input name="review-name" class="form-control mb-3" type="text" maxlength="200" required>
+					</label>
+
+					<label for="review-email" class="form-label col-6">
+						Email*
+						<input name="review-email" class="form-control mb-3" type="email" maxlength="200" required>
+					</label>
+				</div>
+
+				<label for="review-content" class="form-label">Content</label>
+				<textarea name="review-content" placeholder="Write a review..." class="form-control mb-4" rows="5" maxlength="5000"></textarea>
+
+				<input type="submit" class="btn btn-primary">
+			</form>
+		</section>
+	</div>
 </div>
 
 <?php

@@ -21,11 +21,12 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
-	height: 60vh;
+	min-height: 60vh;
 }
 
 .header h1 {
 	font-size: 100px;
+	margin-top: 80px;
 }
 
 .home-bg h1 {
@@ -51,6 +52,56 @@
 #editor {
 	height: 150px;
 }
+
+/*Star Rating*/
+input.rating[type="radio"] {
+	-webkit-appearance: none!important;
+	-moz-appearance: none!important;
+	appearance: none!important;
+}
+
+input.rating[type="radio"]:checked + label::before {
+	font: var(--fa-font-solid);
+}
+
+.star-rating:hover label::before {
+	font: var(--fa-font-solid) !important;
+	content: '\f005';
+}
+
+.star-rating:has(input[type="radio"]:checked) label::before {
+	font: var(--fa-font-solid);
+	content: '\f005';
+}
+
+input.rating[type="radio"]:hover + label ~ label::before,
+label.rating-star:hover ~ label::before {
+	font: var(--fa-font-regular) !important;
+	content: '\f005';
+}
+
+input.rating[type="radio"]:checked + label ~ label::before {
+	font: var(--fa-font-regular);
+	content: '\f005';
+}
+
+label.rating-star::before {
+	font: var(--fa-font-regular);
+	content: '\f005';
+}
+
+label.rating-star {
+	font-size: 24px!important;
+	margin: 0 -8px;
+	padding: 0 3px;
+}
+
+.star-rating:has(input:invalid:focus)::after {
+	content: 'A star rating is required';
+	margin-left: 10px;
+	color: red;
+}
+/*End Star Rating*/
 
 @media print {
 	#recipe-section {
