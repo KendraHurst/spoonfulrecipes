@@ -89,7 +89,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			</div>
 			<?php if ($notes) { ?>
 			<div class="col-12 px-3 pt-3 px-md-4 pt-md-4">
-				<h5>Notes</h5>
+				<h4>Notes</h5>
 				<?php foreach($notes as $key=>$note) { ?>
 					<p><?=str_repeat('*', $key + 1) . ' ' . $note;?></p>
 				<?php } ?>
@@ -98,7 +98,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		</section>
 
 		<section class="mx-2 my-4">
-			<h2 class="mb-3">Leave a Review</h2>
+			<h3 class="mb-3">Leave a Review</h2>
 			<form action="/add-review" method="post">
 				<input hidden name="recipe-id" value="<?=$recipe['id'];?>">
 				<input hidden name="recipe-page" value="<?=Web::instance()->slug($recipe['name']);?>">
@@ -140,6 +140,22 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<input type="submit" class="btn btn-primary">
 			</form>
 		</section>
+
+	<?php if($reviews) { ?>
+		<section class="mx-2 my-4">
+			<h3 class="mb-3">Reviews</h2>
+
+		<?php foreach ($reviews as $review) { ?>
+			<div class="card col-12">
+				<div class="card-body">
+				<h4 class="card-title"><?=$review['name'];?></h3>
+				<div class="card-subtitle text-primary"><?=str_repeat('<i class="fa-solid fa-star"></i>', $review['rating']) . str_repeat('<i class="fa-regular fa-star"></i>', 5 - $review['rating']);?></div>
+				<p class="card-text"><?=$review['text'];?></p>
+			</div>
+		<?php } ?>
+
+		</section>
+	<?php } ?>
 	</div>
 </div>
 

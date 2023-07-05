@@ -17,7 +17,7 @@ class ReviewProcessor
 		$review->rating = $_POST['review-rating'];
 		$review->name = substr($_POST['review-name'], 0, 255) ?: null;
 		$review->email = $audit->email($_POST['review-email']) ? $_POST['review-email'] : null;
-		$review->text = substr($_POST['review-content'], 0, 5000) ?: null;
+		$review->text = substr(htmlspecialchars($_POST['review-content']), 0, 5000) ?: null;
 
 		$review->insert();
 

@@ -6,6 +6,7 @@ use View;
 use Models\Recipe;
 use Models\Ingredients;
 use Models\Directions;
+use Models\Reviews;
 
 class RecipeController 
 {
@@ -13,6 +14,8 @@ class RecipeController
 		$recipe_mapper = new Recipe();
 		$ingredient_mapper = new Ingredients();
 		$direction_mapper = new Directions();
+		$review_mapper = new Reviews();
+
 		$recipe_slug = $f3->get('PARAMS.recipe');
 		$search = str_replace('-', '%', $recipe_slug);
 
@@ -23,8 +26,10 @@ class RecipeController
 			$recipe = $recipes[0];
 			$ingredients = $ingredient_mapper->select('*', array('recipe_id = ?', $recipe['id']));
 			$directions = $direction_mapper->select('*', array('recipe_id = ?', $recipe['id']));
+			$reviews = $review_mapper->select('*', array('recipe_id = ? and approved', $recipe['id']));
+
 			$view = View::instance();
-			echo $view->render('recipe.php', null, compact('f3', 'view', 'recipe_slug', 'recipe', 'ingredients', 'directions'));
+			echo $view->render('recipe.php', null, compact('f3', 'view', 'recipe_slug', 'recipe', 'ingredients', 'directions', 'reviews'));
 		}
     }
     public function recipes($f3) {
