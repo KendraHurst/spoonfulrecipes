@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'A Title',
 	'description' => 'A description',
-	'canonical' => 'https://www.frugalspoonful.com'
+	'canonical' => 'https://www.spoonfulrecipes.com'
 ];
 
 $f3->set('page', $page);

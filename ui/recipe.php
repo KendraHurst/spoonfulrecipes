@@ -2,7 +2,7 @@
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
-	'canonical' => 'https://www.frugalspoonful.com/recipes/' . Web::instance()->slug($recipe['name']),
+	'canonical' => 'https://www.spoonfulrecipes.com/recipes/' . Web::instance()->slug($recipe['name']),
 	'keywords' => $recipe['keywords'] ?: ''
 ];
 

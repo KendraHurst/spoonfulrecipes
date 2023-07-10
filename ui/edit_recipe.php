@@ -1,8 +1,8 @@
 <?php
 $page = [
-	'title' => 'Edit a recipe on Frugal Spoonful',
+	'title' => 'Edit a recipe on Spoonful Recipes',
 	'description' => 'Fill out the form to edit the recipe',
-	'canonical' => 'https://www.frugalspoonful.com'
+	'canonical' => 'https://www.spoonfulrecipes.com'
 ];
 
 $f3->set('page', $page);

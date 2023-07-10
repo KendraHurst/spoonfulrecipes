@@ -22,7 +22,7 @@ class LoginController
 			if($login_valid) {
 				$_SESSION['user'] = $_POST['username'];
 				$from = $_POST['from'];
-				header("Location: http://localhost:8000/" . $from);
+				header("Location: " . $f3->get('siteurl') . "/" . $from);
 				die();
 			} else {
 				echo $view->render('login.php', null, compact('f3', 'view', 'login_valid'));
@@ -35,8 +35,8 @@ class LoginController
 		$view = View::instance();
 		echo $view->render('login.php', null, compact('f3', 'view'));
 	}
-	public function logout() {
+	public function logout($f3) {
 		unset($_SESSION['user']);
-		header("Location: http://localhost:8000/");
+		header("Location: " . $f3->get('siteurl'));
 	}
 }

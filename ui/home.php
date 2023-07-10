@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'A Title',
 	'description' => 'A description',
-	'canonical' => 'https://www.frugalspoonful.com'
+	'canonical' => 'https://www.spoonfulrecipes.com'
 ];
 
 $f3->set('page', $page);
@@ -11,8 +11,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
 
 <header class="header home-bg oswald d-flex flex-column text-center align-items-center justify-content-center mt-5">
-	<h1 class="text-white">Frugal Spoonful</h1>
-	<h2 class="text-light fs-2">Easy frugal recipes, one Spoonful at a time</h2>
+	<h1 class="text-white">Spoonful Recipes</h1>
+	<h2 class="text-light fs-2">Easy budget friendly recipes, one Spoonful at a time</h2>
 </header>
 
 <section>

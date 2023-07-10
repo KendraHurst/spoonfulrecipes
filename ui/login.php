@@ -1,8 +1,8 @@
 <?php
 $page = [
-	'title' => 'Log In to Frugal Spoonful',
-	'description' => 'Use this page to log in to your Frugal Spoonful account',
-	'canonical' => 'https://www.frugalspoonful.com/login'
+	'title' => 'Log In to Spoonful Recipes',
+	'description' => 'Use this page to log in to your Spoonful Recipes account',
+	'canonical' => 'https://www.spoonfulrecipes.com/login'
 ];
 
 $f3->set('page', $page);

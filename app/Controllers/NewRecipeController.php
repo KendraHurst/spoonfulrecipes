@@ -16,7 +16,8 @@ class NewRecipeController
 			$view = View::instance();
 			echo $view->render('new_recipe.php', null, compact('f3', 'view', 'author'));
 		} else {
-			header('Location: http://localhost:8000/login?from=new-recipe');
+			header('Location: ' . $f3->get('siteurl') . '/login?from=new-recipe');
+			die();
 		}
 	}
 
@@ -25,9 +26,11 @@ class NewRecipeController
 		if(isset($_SESSION['user'])) {
 			$add = new AddRecipe();
 			$add->addRecipe($f3);
-			header('Location: http://localhost:8000/');
+			header('Location: ' . $f3->get('siteurl'));
+			die();
 		} else {
-			header('Location: http://localhost:8000/login?from=new-recipe');
+			header('Location: ' . $f3->get('siteurl') . '/login?from=new-recipe');
+			die();
 		}
 	}
 }

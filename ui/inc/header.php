@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md bg-light fixed-top container-fluid d-print-none">
 	<a class="navbar-brand fs-2 fw-bold text-primary" href="/">
 		<img src="/images/logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
-		Frugal Spoonful
+		Spoonful
 	</a>
 
 	<button class="navbar-toggler border-0 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
