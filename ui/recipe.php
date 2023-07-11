@@ -97,27 +97,35 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<?php } ?>
 		</section>
 
+	<?php if (isset($_GET['submitted'])) { ?>
+
+		<div class="alert alert-primary" id="review-reply" role="alert">
+			Thank you for your review!
+		</div>
+
+	<?php } else { ?>
+
 		<section class="mx-2 my-4">
 			<h3 class="mb-3">Leave a Review</h2>
-			<form action="/add-review" method="post">
+			<form action="/add-review" method="post" id="review-form">
 				<input hidden name="recipe-id" value="<?=$recipe['id'];?>">
 				<input hidden name="recipe-page" value="<?=Web::instance()->slug($recipe['name']);?>">
 
 				<div class="form-label">Star Rating*</div>
 				<div class="star-rating form-check-inline text-primary mb-3">
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="1" id="rating-1" required>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="1" id="rating-1" aria-label="1 star" required>
 					<label for="rating-1" class="rating-star"></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="2" id="rating-2" required>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="2" id="rating-2" aria-label="2 stars" required>
 					<label for="rating-2" class="rating-star"></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="3" id="rating-3" required>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="3" id="rating-3" aria-label="3 stars" required>
 					<label for="rating-3" class="rating-star"></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="4" id="rating-4" required>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="4" id="rating-4" aria-label="4 stars" required>
 					<label for="rating-4" class="rating-star"></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="5" id="rating-5" required>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="5" id="rating-5" aria-label="5 stars" required>
 					<label for="rating-5" class="rating-star"></label>
 				</div>
 				<br />
@@ -125,32 +133,48 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<div class="row">
 					<label for="review-name" class="form-label col-6">
 						Name*
-						<input name="review-name" class="form-control mb-3" type="text" maxlength="200" required>
+						<input name="review-name" id="review-name" class="form-control mb-3" type="text" maxlength="200" required>
 					</label>
 
 					<label for="review-email" class="form-label col-6">
 						Email*
-						<input name="review-email" class="form-control mb-3" type="email" maxlength="200" required>
+						<input name="review-email" id="review-email" class="form-control mb-3" type="email" maxlength="200" required>
 					</label>
 				</div>
 
 				<label for="review-content" class="form-label">Content</label>
-				<textarea name="review-content" placeholder="Write a review..." class="form-control mb-4" rows="5" maxlength="5000"></textarea>
+				<textarea name="review-content" id="review-content" placeholder="Write a review..." class="form-control mb-4" rows="5" maxlength="5000"></textarea>
 
-				<input type="submit" class="btn btn-primary">
+				<button
+					class="g-recaptcha btn btn-primary"
+					data-sitekey="6LcUGgEnAAAAACCR1Yv5AP5jAuzeLJojFdqJcmwf"
+					data-callback='onSubmit'
+					data-action='submit'
+				>
+					Submit
+				</button>
+
+				<script src="https://www.google.com/recaptcha/api.js"></script>
+				<script>
+					function onSubmit(token) {
+						document.getElementById("review-form").submit();
+					}
+				</script>
 			</form>
 		</section>
 
-	<?php if($reviews) { ?>
+	<?php }
+	if($reviews) { ?>
 		<section class="mx-2 my-4">
 			<h3 class="mb-3">Reviews</h2>
 
 		<?php foreach ($reviews as $review) { ?>
 			<div class="card col-12">
 				<div class="card-body">
-				<h4 class="card-title"><?=$review['name'];?></h3>
-				<div class="card-subtitle text-primary"><?=str_repeat('<i class="fa-solid fa-star"></i>', $review['rating']) . str_repeat('<i class="fa-regular fa-star"></i>', 5 - $review['rating']);?></div>
-				<p class="card-text"><?=$review['text'];?></p>
+					<h4 class="card-title"><?=$review['name'];?></h3>
+					<div class="card-subtitle text-primary"><?=str_repeat('<i class="fa-solid fa-star"></i>', $review['rating']) . str_repeat('<i class="fa-regular fa-star"></i>', 5 - $review['rating']);?></div>
+					<p class="card-text"><?=$review['text'];?></p>
+				</div>
 			</div>
 		<?php } ?>
 
