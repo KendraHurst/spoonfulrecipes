@@ -26,6 +26,8 @@ class ReviewProcessor
 			$review->email = $audit->email($_POST['review-email']) ? $_POST['review-email'] : null;
 			$review->text = substr(htmlspecialchars($_POST['review-content']), 0, 5000) ?: null;
 
+			$review->date = date('Y-m-d');
+
 			$review->insert();
 
 			return $page;

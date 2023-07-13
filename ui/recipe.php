@@ -1,4 +1,7 @@
 <?php
+use Helpers\RatingHelper;
+
+$rater = new RatingHelper();
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
@@ -47,6 +50,16 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="col-12 col-md-6 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
 			<div class="col-12 col-md-6 p-3 p-md-4">
 				<h3 class="oswlad fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
+
+			<?php if($reviews) {
+				$ratings = [];
+
+				foreach($reviews as $review) {
+					$ratings[] = $review['rating'];
+				}
+				echo $rater->starsPlusRating($ratings);
+			} ?>
+
 				<p class="m-0"><b>Author: </b><?=$recipe['author'];?></p>
 				<p class="m-0"><b>Prep Time: </b><?=$recipe['prep_time'];?> min</p>
 				<p class="m-0"><b>Cook Time: </b><?=$recipe['cook_time'];?> min</p>
@@ -171,7 +184,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<?php foreach ($reviews as $review) { ?>
 			<div class="card col-12">
 				<div class="card-body">
-					<h4 class="card-title"><?=$review['name'];?></h3>
+					<h4 class="card-title"><?=$review['name'];?></h4>
+					<div class="card-subtitle"><?=date("M j, Y", strtotime($review['date']));?></div>
 					<div class="card-subtitle text-primary"><?=str_repeat('<i class="fa-solid fa-star"></i>', $review['rating']) . str_repeat('<i class="fa-regular fa-star"></i>', 5 - $review['rating']);?></div>
 					<p class="card-text"><?=$review['text'];?></p>
 				</div>

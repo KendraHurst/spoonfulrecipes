@@ -1,4 +1,7 @@
 <?php
+use Helpers\RatingHelper;
+
+$rater = new RatingHelper();
 $page = [
 	'title' => 'A Title',
 	'description' => 'A description',
@@ -18,12 +21,21 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 <main class="row">
 <?php foreach ($recipes as $recipe) {
 	$slug = Web::instance()->slug($recipe['name']);
+	$ratings = [];
+	foreach($reviews as $review) {
+		if($review['recipe_id'] === $recipe['id']) {
+			$ratings[] = $review['rating'];
+		}
+	}
 	?>
 
 	<div class="card recipe-card col-12 col-md-4 col-xl-3 border-0 p-4">
 	  <img src="/images/recipes/<?=$slug;?>/sized/main.4x3.jpg" class="card-img-top" alt="<?=$recipe['name'];?>">
 	  <div class="card-body text-center bg-light rounded-bottom">
 		<h3 class="card-title oswald"><?=$recipe['name'];?></h3>
+	<?php if ($ratings) {
+		echo $rater->starsPlusRating($ratings);
+	} ?>
 	  </div>
 	  <div class="card-footer text-center border-0 bg-light rounded-bottom">
 		<p class="card-text text-start"><?=$recipe['description'];?></p>

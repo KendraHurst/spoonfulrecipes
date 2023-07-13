@@ -24,9 +24,6 @@ class RecipeController
 			$f3->error(404);
 		} else {
 			$recipe = $recipes[0];
-			$ingredients = $ingredient_mapper->select('*', array('recipe_id = ?', $recipe['id']));
-			$directions = $direction_mapper->select('*', array('recipe_id = ?', $recipe['id']));
-			$reviews = $review_mapper->select('*', array('recipe_id = ? and approved', $recipe['id']));
 
 			$view = View::instance();
 			echo $view->render('recipe.php', null, compact('f3', 'view', 'recipe_slug', 'recipe', 'ingredients', 'directions', 'reviews'));
@@ -34,10 +31,12 @@ class RecipeController
     }
     public function recipes($f3) {
 		$recipe_mapper = new Recipe();
+		$review_mapper = new Reviews();
 
-		$recipes = $recipe_mapper->select('name, description', array('active ORDER BY publish_date DESC'));
+		$recipes = $recipe_mapper->select('id, name, description', array('active ORDER BY publish_date DESC'));
+		$reviews = $review_mapper->select('recipe_id, rating', 'approved');
 		$view = View::instance();
-		echo $view->render('recipes.php', null, compact('f3', 'view', 'recipes'));
+		echo $view->render('recipes.php', null, compact('f3', 'view', 'recipes', 'reviews'));
     }
 }
 
