@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-md bg-light fixed-top container-fluid d-print-none">
 	<a class="navbar-brand fs-2 fw-bold text-primary" href="/">
-		<img src="/images/logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
+		<picture>
+			<source srcset="/images/logos/logo.webp" type="image/webp">
+			<img src="/images/logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
+		</picture>
 		Spoonful
 	</a>
 

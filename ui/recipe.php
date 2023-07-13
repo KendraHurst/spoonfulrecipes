@@ -18,13 +18,19 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 <script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 
 <style>
-	.recipe-page-bg {
+	.no-webp .recipe-page-bg {
 		background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg.jpg');
+	}
+	.webp .recipe-page-bg {
+		background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg.webp');
 	}
 
 	@media screen and (max-width: 767px) {
-		.recipe-page-bg {
+		.no-webp .recipe-page-bg {
 			background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg-sm.jpg');
+		}
+		.webp .recipe-page-bg {
+			background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg-sm.webp');
 		}
 	}
 </style>
@@ -47,7 +53,10 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		</main>
 
 		<section id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
-			<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="col-12 col-md-6 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
+			<picture class="col-12 col-md-6">
+				<source srcset="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.webp" type="image/webp">
+				<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
+			</picture>
 			<div class="col-12 col-md-6 p-3 p-md-4">
 				<h3 class="oswlad fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
 

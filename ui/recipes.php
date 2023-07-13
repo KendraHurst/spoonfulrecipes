@@ -30,7 +30,10 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 
 	<div class="card recipe-card col-12 col-md-4 col-xl-3 border-0 p-4">
-	  <img src="/images/recipes/<?=$slug;?>/sized/main.4x3.jpg" class="card-img-top" alt="<?=$recipe['name'];?>">
+	  <picture>
+	  	<source srcset="/images/recipes/<?=$slug;?>/sized/main.4x3.webp" type="image/webp">
+		  <img src="/images/recipes/<?=$slug;?>/sized/main.4x3.jpg" class="card-img-top" alt="<?=$recipe['name'];?>">
+	  </picture>
 	  <div class="card-body text-center bg-light rounded-bottom">
 		<h3 class="card-title oswald"><?=$recipe['name'];?></h3>
 	<?php if ($ratings) {
