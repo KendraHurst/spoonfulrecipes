@@ -47,9 +47,8 @@ class RecipeController
 
 			if($recipe_slug !== Web::instance()->slug($recipe['name'])) {
 
-				print($recipe_slug . ' - ' . Web::instance()->slug($recipe['name']));
-				//header('Location: ' . $f3->get('siteurl') . '/recipes/' . $recipe['id'] . '/' . Web::instance()->slug($recipe['name']));
-				//die();
+				header('Location: ' . $f3->get('siteurl') . '/recipes/' . $recipe['id'] . '/' . Web::instance()->slug($recipe['name']));
+				die();
 
 			} else {
 				$ingredient_mapper = new Ingredients();
