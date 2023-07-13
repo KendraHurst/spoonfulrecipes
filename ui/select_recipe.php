@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'Select a recipe to edit',
 	'description' => 'Choose a recipe to edit',
-	'canonical' => 'https://www.spoonfulrecipes.com'
+	'noindex' => true
 ];
 
 $f3->set('page', $page);

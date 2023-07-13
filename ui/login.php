@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'Log In to Spoonful Recipes',
 	'description' => 'Use this page to log in to your Spoonful Recipes account',
-	'canonical' => 'https://www.spoonfulrecipes.com/login'
+	'noindex' => true
 ];
 
 $f3->set('page', $page);

@@ -5,8 +5,7 @@ $rater = new RatingHelper();
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
-	'canonical' => 'https://www.spoonfulrecipes.com/recipes/' . Web::instance()->slug($recipe['name']),
-	'keywords' => $recipe['keywords'] ?: ''
+	'canonical' => 'https://www.spoonfulrecipes.com/recipes/' . $recipe['id'] . '/' . Web::instance()->slug($recipe['name'])
 ];
 
 $notes = [];

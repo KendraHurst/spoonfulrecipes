@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'Moderate Reviews',
 	'description' => 'Moderate the reviews for spoonful recipes',
-	'canonical' => 'https://www.spoonfulrecipes.com'
+	'noindex' => true
 ];
 
 $f3->set('page', $page);

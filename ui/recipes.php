@@ -5,7 +5,7 @@ $rater = new RatingHelper();
 $page = [
 	'title' => 'A Title',
 	'description' => 'A description',
-	'canonical' => 'https://www.spoonfulrecipes.com'
+	'canonical' => 'https://www.spoonfulrecipes.com/recipes'
 ];
 
 $f3->set('page', $page);

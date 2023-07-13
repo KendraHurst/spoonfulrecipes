@@ -2,7 +2,7 @@
 $page = [
 	'title' => 'Add a new recipe to Spoonful Recipes',
 	'description' => 'Fill out the form to add a new recipe',
-	'canonical' => 'https://www.spoonfulrecipes.com'
+	'noindex' => true
 ];
 
 $f3->set('page', $page);
