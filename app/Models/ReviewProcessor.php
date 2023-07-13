@@ -11,7 +11,7 @@ class ReviewProcessor
 	{
 		$audit = \Audit::instance();
 		$captcha = new CaptchaHelper;
-		$page = $_POST['recipe-page'] ? $_POST['recipe-page'] . '?submitted=1#review-reply' : '';
+		$page = isset($_POST['recipe-page']) && isset($_POST['recipe-id']) ? $_POST['recipe-id'] . '/' . $_POST['recipe-page'] . '?submitted=1#review-reply' : '';
 
 		if($audit->isbot()) {
 

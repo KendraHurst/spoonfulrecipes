@@ -20,7 +20,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 <main class="row">
 <?php foreach ($recipes as $recipe) {
-	$slug = Web::instance()->slug($recipe['name']);
+	$slug = Web::instance()->slug($view->raw($recipe['name']));
 	$ratings = [];
 	foreach($reviews as $review) {
 		if($review['recipe_id'] === $recipe['id']) {
@@ -42,7 +42,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	  </div>
 	  <div class="card-footer text-center border-0 bg-light rounded-bottom pb-3">
 		<p class="card-text text-start"><?=$recipe['description'];?></p>
-		<a href="recipes/<?=$slug;?>" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
+		<a href="recipes/<?=$recipe['id'];?>/<?=$slug;?>" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
 	  </div>
 	</div>	
 
