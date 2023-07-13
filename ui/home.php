@@ -13,7 +13,7 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
 
-<header class="header home-bg oswald d-flex flex-column text-center align-items-center justify-content-center mt-5">
+<header class="header home-bg oswald d-flex flex-column text-center align-items-center justify-content-center">
 	<h1 class="text-white">Spoonful Recipes</h1>
 	<h2 class="text-light fs-2">Easy budget friendly recipes, one Spoonful at a time</h2>
 </header>
@@ -43,7 +43,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			echo $rater->starsPlusRating($ratings);
 		} ?>
 		  </div>
-		  <div class="card-footer text-center border-0 bg-light rounded-bottom">
+		  <div class="card-footer text-center border-0 bg-light rounded-bottom pb-3">
 			<p class="card-text text-start"><?=$recipe['description'];?></p>
 			<a href="recipes/<?=$slug;?>" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
 		  </div>

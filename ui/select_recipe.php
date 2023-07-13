@@ -12,10 +12,7 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 
-<div style="height: 100px;">
-</div>
-
-<div class="container">
+<div class="container my-5">
 	<form method="get">
 		<div class="input-group mb-5">
 			<input name="edit-recipe" list="recipe-list" class="form-control" type="text">

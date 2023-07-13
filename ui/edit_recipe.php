@@ -11,7 +11,6 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
-<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 <script src="js/new_recipe.js"></script>
 <style>
 	#directions-list .btn, #directions-list input {
@@ -33,10 +32,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	}
 </style>
 
-<div style="height: 100px;">
-</div>
-
-<div class="container">
+<div class="container my-5">
 	<form action="update-recipe" method="post">
 
 		<input hidden value="<?=$recipe['id'];?>" name="recipe_id">

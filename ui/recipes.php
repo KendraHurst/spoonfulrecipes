@@ -40,7 +40,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		echo $rater->starsPlusRating($ratings);
 	} ?>
 	  </div>
-	  <div class="card-footer text-center border-0 bg-light rounded-bottom">
+	  <div class="card-footer text-center border-0 bg-light rounded-bottom pb-3">
 		<p class="card-text text-start"><?=$recipe['description'];?></p>
 		<a href="recipes/<?=$slug;?>" class="btn btn-primary rounded-pill px-3">Go to Recipe</a>
 	  </div>

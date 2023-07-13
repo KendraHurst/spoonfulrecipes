@@ -10,9 +10,7 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 
-<div style="height: 100px;">
-</div>
-
+<div class="my-5">
 
 <?php
 if(isset($name)) {
@@ -50,6 +48,10 @@ if(isset($name)) {
 
 <?php
 }
+?>
 
+</div>
+
+<?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
 ?>

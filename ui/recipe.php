@@ -15,7 +15,6 @@ $f3->set('page', $page);
 echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
-<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 
 <style>
 	.no-webp .recipe-page-bg {
@@ -58,7 +57,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
 			</picture>
 			<div class="col-12 col-md-6 p-3 p-md-4">
-				<h3 class="oswlad fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
+				<h3 class="oswald fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
 
 			<?php if($reviews) {
 				$ratings = [];

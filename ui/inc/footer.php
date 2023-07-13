@@ -12,7 +12,7 @@
 			Spoonful
 		</a>
 
-		<ul class="list-unstyled text-center text-muted mx-2 my-0 my-md-2">
+		<ul class="list-unstyled text-center mx-2 my-0 my-md-2">
 			<li>
 				<a class="nav-link my-2" href="/">Home</a>
 			</li>
@@ -23,7 +23,7 @@
 				<a class="nav-link my-2" href="/recipes">Recipes</a>
 			</li>
 		</ul>
-		<ul class="list-unstyled text-md-end text-center text-muted mx-2 my-0 my-md-2">
+		<ul class="list-unstyled text-md-end text-center mx-2 my-0 my-md-2">
 			<li>
 				<a class="nav-link my-2" href="#">Contact</a>
 			</li>
@@ -42,4 +42,13 @@
 	
 </footer>
 
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/lozad.min.js"></script>
 <script src="/js/modernizr-custom.js"></script>
+<script src="/js/main.js"></script>
+
+</div>
+</body>
+</html>

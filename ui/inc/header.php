@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-light fixed-top container-fluid d-print-none">
+<nav class="navbar navbar-expand-md bg-light container-fluid d-print-none">
 	<a class="navbar-brand fs-2 fw-bold text-primary" href="/">
 		<picture>
 			<source srcset="/images/logos/logo.webp" type="image/webp">
