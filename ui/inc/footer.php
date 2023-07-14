@@ -42,7 +42,6 @@
 	
 </footer>
 
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/lozad.min.js"></script>

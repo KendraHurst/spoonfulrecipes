@@ -38,6 +38,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<h2 class="text-light fs-2"><?=$recipe['title'];?></h2>
 </header>
 
+<div class="container text-start d-print-none">
+</div>
 <div class="d-flex justify-content-center d-print-none">
 	<button class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="window.print()">Print Recipe</button>
 	<button class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="document.getElementById('recipe-section').scrollIntoView({behavior: 'smooth'})">Jump to Recipe</button>
@@ -67,7 +69,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				echo $rater->starsPlusRating($ratings);
 			} ?>
 
-				<p class="m-0"><b>Author: </b><?=$recipe['author'];?></p>
+				<p class="m-0"><b>Author: </b><?=$author;?></p>
+				<p class="m-0"><b>Publish Date: </b><?=date("M j, Y", strtotime($review['date']));?></p>
 				<p class="m-0"><b>Prep Time: </b><?=$recipe['prep_time'];?> min</p>
 				<p class="m-0"><b>Cook Time: </b><?=$recipe['cook_time'];?> min</p>
 				<p class="m-0"><b>Total Time: </b><?=$recipe['prep_time'] + $recipe['cook_time'];?> min</p>
@@ -76,7 +79,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<p class="m-0"><b>Calories: </b><?=$recipe['calories'];?></p>
 				<?php }
 				if(isset($recipe['category'])) { ?>
-				<p class="m-0"><b>Type: </b><?=$recipe['category'];?></p>
+				<p class="m-0"><b>Type: </b><?=ucwords($recipe['category']);?></p>
 				<?php } ?>
 			</div>
 			<div class="col-12 col-md-6 px-3 px-4 px-md-4 pt-md-4">
@@ -119,13 +122,13 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<?php if (isset($_GET['submitted'])) { ?>
 
-		<div class="alert alert-primary" id="review-reply" role="alert">
+		<div class="alert alert-primary d-print-none" id="review-reply" role="alert">
 			Thank you for your review!
 		</div>
 
 	<?php } else { ?>
 
-		<section class="mx-2 my-4">
+		<section class="mx-2 my-4 d-print-none">
 			<h3 class="mb-3">Leave a Review</h2>
 			<form action="/add-review" method="post" id="review-form">
 				<input hidden name="recipe-id" value="<?=$recipe['id'];?>">
@@ -185,7 +188,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<?php }
 	if($reviews) { ?>
-		<section class="mx-2 my-4">
+		<section class="mx-2 my-4 d-print-none">
 			<h3 class="mb-3">Reviews</h2>
 
 		<?php foreach ($reviews as $review) { ?>
