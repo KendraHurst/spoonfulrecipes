@@ -25,18 +25,22 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 <style>
 	.no-webp .recipe-page-bg {
-		background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg.jpg');
+		background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>;?>/main.16x9.jpg');
+		background-size: 100%;
 	}
 	.webp .recipe-page-bg {
-		background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg.webp');
+		background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.16x9.webp');
+		background-size: 100%;
 	}
 
 	@media screen and (max-width: 767px) {
 		.no-webp .recipe-page-bg {
-			background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg-sm.jpg');
+			background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.jpg');
+			background-size: 100%;
 		}
 		.webp .recipe-page-bg {
-			background-image:url('/images/recipes/<?=$recipe_slug;?>/sized/main.bg-sm.webp');
+			background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.webp');
+			background-size: 100%;
 		}
 	}
 </style>
@@ -62,8 +66,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 		<section id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
 			<picture class="col-12 col-md-6">
-				<source srcset="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.webp" type="image/webp">
-				<img src="/images/recipes/<?=$recipe_slug;?>/sized/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
+				<source srcset="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.webp" type="image/webp">
+				<img src="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
 			</picture>
 			<div class="col-12 col-md-6 p-3 p-md-4">
 				<h3 class="oswald fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>

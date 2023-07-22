@@ -15,9 +15,9 @@ class SchemaHelper
 			"@type" => "Recipe",
 			"name" => $recipe['name'],
 			"image" => [
-				$f3->get('siteurl') . "/images/recipes/" . $recipe_slug . "/sized/main.1x1.jpg",
-				$f3->get('siteurl') . "/images/recipes/" . $recipe_slug . "/sized/main.4x3.jpg",
-				$f3->get('siteurl') . "/images/recipes/" . $recipe_slug . "/sized/main.16x9.jpg"
+				$f3->get('imgurl') . "recipes/" . $recipe['id'] . "/main.1x1.jpg",
+				$f3->get('imgurl') . "recipes/" . $recipe['id'] . "/main.4x3.jpg",
+				$f3->get('imgurl') . "recipes/" . $recipe['id'] . "/main.16x9.jpg"
 			],
 			"author" => [
 				"@type" => "Person",
@@ -52,7 +52,7 @@ class SchemaHelper
 
 		$schema_array['recipeIngredient'] = $this->ingredientSchema($ingredients);
 
-		$schema_array['recipeInstructions'] = $this->directionSchema($directions, $f3->get('siteurl') . '/recipes/' . $recipe['id'] . '/' . $recipe_slug);
+		$schema_array['recipeInstructions'] = $this->directionSchema($f3, $directions, $f3->get('siteurl') . '/recipes/' . $recipe['id'] . '/' . $recipe_slug);
 
 		if($reviews) {
 			$schema_array['aggregateRating'] = $this->ratingSchema($reviews);
@@ -73,7 +73,7 @@ class SchemaHelper
 		return $schema;
 	}
 
-	private function directionSchema($directions, $page)
+	private function directionSchema($f3, $directions, $page)
 	{
 		$schema = array();
 
@@ -86,7 +86,7 @@ class SchemaHelper
 			];
 
 			if($direction['image']) {
-				$direction_array['image'] = $direction['image'];
+				$direction_array['image'] = $f3->get('imgurl') . 'recipes/' . $direction['recipe_id'] . '/directions/' . $direction['image'] . '.jpg';
 			}
 
 			$schema[] = $direction_array;

@@ -6,8 +6,8 @@
 	<div class="d-flex flex-md-row flex-column col-md-8 col-10 justify-content-between mt-5 px-2 py-4 border-top border-primary text-center text-md-start">
 		<a href="/" class="text-decoration-none fs-4 fw-bold text-primary">
 			<picture>
-				<source srcset="/images/logos/logo.webp" type="image/webp">
-				<img src="/images/logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
+				<source srcset="<?=$f3->get('imgurl');?>logos/logo.webp" type="image/webp">
+				<img src="<?=$f3->get('imgurl');?>logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
 			</picture>
 			Spoonful
 		</a>

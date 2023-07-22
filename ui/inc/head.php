@@ -22,7 +22,7 @@
 	<!--stylesheets-->
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/custom.css">
-	<link rel="shortcut icon" type="image/png" href="/images/logos/favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="<?=$f3->get('imgurl');?>logos/favicon.png"/>
 
 </head>
 <body class="text-gray-900 mont antialiased">

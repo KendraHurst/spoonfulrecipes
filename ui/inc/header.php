@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-md bg-light container-fluid d-print-none">
 	<a class="navbar-brand fs-2 fw-bold text-primary" href="/">
 		<picture>
-			<source srcset="/images/logos/logo.webp" type="image/webp">
-			<img src="/images/logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
+			<source srcset="<?=$f3->get('imgurl');?>logos/logo.webp" type="image/webp">
+			<img src="<?=$f3->get('imgurl');?>logos/logo.png" alt="Spoonful Logo" height="50px" width="50px" class="d-inline-block align-text-center ms-0 me-2 my-1">
 		</picture>
 		Spoonful
 	</a>

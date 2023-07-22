@@ -33,24 +33,24 @@
 }
 
 .no-webp .header.home-bg {
-	background-image: url('/images/index/home-bg.jpg');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/index/home-bg.jpg');
 }
 .webp .header.home-bg {
-	background-image: url('/images/index/home-bg.webp');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/index/home-bg.webp');
 }
 
 .no-webp .header.recipe-bg {
-	background-image: url('/images/recipes/recipe-bg.jpg');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/recipes/recipe-bg.jpg');
 }
 .webp .header.recipe-bg {
-	background-image: url('/images/recipes/recipe-bg.webp');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/recipes/recipe-bg.webp');
 }
 
 .no-webp .header.about-bg {
-	background-image: url('/images/about/about-bg.jpg');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/about/about-bg.jpg');
 }
 .webp .header.about-bg {
-	background-image: url('/images/about/about-bg.webp');
+	background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/about/about-bg.webp');
 }
 
 .content-image {
@@ -137,24 +137,24 @@ label.rating-star {
 @media screen and (max-width: 767px) {
 
 	.no-webp .header.home-bg {
-		background-image: url('/images/index/home-bg-sm.jpg');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/index/home-bg-sm.jpg');
 	}
 	.webp .header.home-bg {
-		background-image: url('/images/index/home-bg-sm.webp');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/index/home-bg-sm.webp');
 	}
 
 	.no-webp .header.recipe-bg {
-		background-image: url('/images/recipes/recipe-bg-sm.jpg');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/recipes/recipe-bg-sm.jpg');
 	}
 	.webp .header.recipe-bg {
-		background-image: url('/images/recipes/recipe-bg-sm.webp');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/recipes/recipe-bg-sm.webp');
 	}
 
 	.no-webp .header.about-bg {
-		background-image: url('/images/about/about-bg-sm.jpg');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/about/about-bg-sm.jpg');
 	}
 	.webp .header.about-bg {
-		background-image: url('/images/about/about-bg-sm.webp');
+		background-image: url('https://spoonful-recipes.s3.us-east-2.amazonaws.com/about/about-bg-sm.webp');
 	}
 
 	.header h1, .home-bg h1 {
