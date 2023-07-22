@@ -78,7 +78,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			} ?>
 
 				<p class="m-0"><b>Author: </b><?=$author;?></p>
-				<p class="m-0"><b>Publish Date: </b><?=date("M j, Y", strtotime($review['date']));?></p>
+				<p class="m-0"><b>Publish Date: </b><?=date("M j, Y", strtotime($recipe['publish_date']));?></p>
 				<p class="m-0"><b>Prep Time: </b><?=$recipe['prep_time'];?> min</p>
 				<p class="m-0"><b>Cook Time: </b><?=$recipe['cook_time'];?> min</p>
 				<p class="m-0"><b>Total Time: </b><?=$recipe['prep_time'] + $recipe['cook_time'];?> min</p>
