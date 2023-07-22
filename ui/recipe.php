@@ -1,7 +1,10 @@
 <?php
 use Helpers\RatingHelper;
+use Helpers\SchemaHelper;
 
 $rater = new RatingHelper();
+$schema = new SchemaHelper();
+
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
@@ -14,6 +17,11 @@ $f3->set('page', $page);
 echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
+<script type="application/ld+json">
+
+	<?=$schema->recipeSchema($f3, $recipe, $ingredients, $directions, $author, $reviews);?>
+
+</script>
 
 <style>
 	.no-webp .recipe-page-bg {
@@ -100,7 +108,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<h4>Directions</h4>
 				<ol class="my-3 list-group list-group-flush list-group-numbered bg-light">
 					<?php foreach ($directions as $key=>$direction) { ?>
-					<li class="list-group-item px-0 bg-light" id="<?=$key;?>">
+					<li class="list-group-item px-0 bg-light" id="step<?=$key + 1;?>">
 					<?=$direction['text'];?>
 					<?php if($direction['note']) {
 						$notes[] = $direction['note'];
