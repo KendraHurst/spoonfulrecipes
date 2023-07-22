@@ -33,7 +33,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 </style>
 
 <div class="container my-5">
-	<form action="update-recipe" method="post">
+	<form action="update-recipe" method="post" enctype="multipart/form-data">
 
 		<input hidden value="<?=$recipe['id'];?>" name="recipe_id">
 
@@ -224,10 +224,10 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		} ?>
 		</div>
 
-		<label for="image" class="form-label">Image<span style="color:red;">*</span></label>
+		<label for="image" class="form-label">Image</label>
 		<div class="input-group mb-3">
 			<div class="input-group-text bg-light text-primary"><i class="fa-solid fa-image"></i></div>
-			<input type="file" name="image" accept="image/png, image/jpeg" class="form-control">
+			<input type="file" name="main-image" accept="image/png, image/jpeg" class="form-control">
 		</div>
 
 		<div class="form-check form-switch mb-3">

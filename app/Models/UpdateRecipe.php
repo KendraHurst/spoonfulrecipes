@@ -5,6 +5,7 @@ namespace Models;
 use Models\Recipe;
 use Models\Ingredients;
 use Models\Directions;
+use Helpers\ImageHelper;
 
 class UpdateRecipe 
 {
@@ -15,6 +16,7 @@ class UpdateRecipe
 		$this->updateRecipe($recipe_id);
 		$this->updateIngredients($recipe_id);
 		$this->updateDirections($recipe_id);
+		$this->updateImages($recipe_id);
 	}
 
 	private function updateRecipe($recipe_id)
@@ -99,7 +101,7 @@ class UpdateRecipe
 		$names = $_POST['directions-name'];
 		$texts = $_POST['directions-text'];
 		$notes = $_POST['directions-notes'];
-		$images = $_POST['directions-image'];
+		$images = $_FILES['directions-image'];
 
 		foreach ($current_directions as $current) {
 			if(!in_array($current['id'], $ids)) {
@@ -119,7 +121,7 @@ class UpdateRecipe
 
 			$direction->name = $names[$i];
 			$direction->text = $texts[$i];
-			$direction->image = $images[$i] ?: null;
+			$direction->image = $images['name'][$i] ?: null;
 			$direction->note = trim($notes[$i]) ?: null;
 			$direction->display_order = $i;
 
@@ -130,6 +132,32 @@ class UpdateRecipe
 
 	private function updateImages($recipe_id)
 	{
-		//Put stuff here once you set up S3
+		if($_FILES['main-image']['name']) {
+
+			$size = filesize($_FILES['main-image']['tmp_name']);
+			$image_type = exif_imagetype($_FILES['main-image']['tmp_name']);
+
+			if ($size === false) {
+				$uploadOk = 0;
+			} else {
+				$uploadOk = 1;
+			}
+
+			if ($_FILES["main-image"]["size"] > 2000000) {
+				$uploadOk = 0;
+			}
+
+			if($image_type != 2 && $image_type != 3 && $image_type != 18 && $image_type != 1) {
+				$uploadOk = 0;
+			}
+
+			if($uploadOk) {
+				$main_img = $_FILES['main-image']['tmp_name'];
+				$images = new ImageHelper;
+				$results = $images->recipeMainImage($main_img, $recipe_id);
+
+				return $results;
+			}
+		}
 	}
 }

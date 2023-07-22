@@ -34,7 +34,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 </style>
 
 <div class="container my-5">
-	<form action="add-recipe" method="post" id="new-recipe">
+	<form action="add-recipe" method="post" id="new-recipe" enctype="multipart/form-data">
 
 		<label for="name" class="form-label">Name<span style="color:red;">*</span></label>
 		<input type="text" name="name" maxlength="100" class="form-control mb-3" required>
@@ -117,7 +117,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<label for="image" class="form-label">Image<span style="color:red;">*</span></label>
 		<div class="input-group mb-3">
 			<div class="input-group-text bg-light text-primary"><i class="fa-solid fa-image"></i></div>
-			<input type="file" name="image" accept="image/png, image/jpeg" class="form-control">
+			<input type="file" name="main-image" accept="image/png, image/jpeg" class="form-control">
 		</div>
 
 		<div class="form-check form-switch mb-3">

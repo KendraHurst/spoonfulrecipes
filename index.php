@@ -5,6 +5,7 @@ session_start();
 
 $f3 = Base::instance();
 
+$f3->config('php.ini');
 $f3->config('config.ini');
 $f3->config('routes.ini');
 
