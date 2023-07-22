@@ -6,6 +6,8 @@ use Models\Recipe;
 use Models\Users;
 use Models\Ingredients;
 use Models\Directions;
+use Helpers\ImageHelper;
+use Web;
 
 class AddRecipe 
 {
@@ -14,6 +16,7 @@ class AddRecipe
 		$recipe_id = $this->insertRecipe();
 		$this->addIngredients($recipe_id);
 		$this->addDirections($recipe_id);
+		$this->addImages($recipe_id);
 	}
 
 	private function insertRecipe()
@@ -84,15 +87,28 @@ class AddRecipe
 		$names = $_POST['directions-name'];
 		$texts = $_POST['directions-text'];
 		$notes = $_POST['directions-notes'];
-		$images = $_POST['directions-image'];
+		$images = $_FILES['directions-image'];
 
 		for($i = 0; $i < count($names); $i++) {
 			$direction->recipe_id = $recipe_id;
 			$direction->name = $names[$i];
 			$direction->text = $texts[$i];
-			$direction->image = $images[$i] ?: null;
 			$direction->note = trim($notes[$i]) ?: null;
 			$direction->display_order = $i;
+
+			if($images['name'][$i]) {
+				$imgs = new ImageHelper;
+				$img = $images['tmp_name'][$i];
+
+				$upload_ok = $imgs->verifyImage($img);
+
+				if($upload_ok) {
+					$img_name = Web::instance()->slug($names[$i]);
+					$imgs->directionImage($img, $recipe_id, $img_name);
+
+					$direction->image = $img_name;
+				}
+			}
 
 			$direction->insert();
 			$direction->reset();
@@ -101,6 +117,18 @@ class AddRecipe
 
 	private function addImages($recipe_id)
 	{
-		//Put stuff here once you set up S3
+		if($_FILES['main-image']['name']) {
+
+			$images = new ImageHelper;
+			$main_img = $_FILES['main-image']['tmp_name'];
+
+			$upload_ok = $images->verifyImage($main_img);
+
+			if($upload_ok) {
+				$results = $images->recipeMainImage($main_img, $recipe_id);
+
+				return $results;
+			}
+		}
 	}
 }

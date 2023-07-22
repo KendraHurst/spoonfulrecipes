@@ -6,6 +6,7 @@ use Models\Recipe;
 use Models\Ingredients;
 use Models\Directions;
 use Helpers\ImageHelper;
+use Web;
 
 class UpdateRecipe 
 {
@@ -121,9 +122,22 @@ class UpdateRecipe
 
 			$direction->name = $names[$i];
 			$direction->text = $texts[$i];
-			$direction->image = $images['name'][$i] ?: null;
 			$direction->note = trim($notes[$i]) ?: null;
 			$direction->display_order = $i;
+
+			if($images['name'][$i]) {
+				$imgs = new ImageHelper;
+				$img = $images['tmp_name'][$i];
+
+				$upload_ok = $imgs->verifyImage($img);
+
+				if($upload_ok) {
+					$img_name = Web::instance()->slug($names[$i]);
+					$imgs->directionImage($img, $recipe_id, $img_name);
+
+					$direction->image = $img_name;
+				}
+			}
 
 			$direction->save();
 			$direction->reset();
@@ -134,26 +148,12 @@ class UpdateRecipe
 	{
 		if($_FILES['main-image']['name']) {
 
-			$size = filesize($_FILES['main-image']['tmp_name']);
-			$image_type = exif_imagetype($_FILES['main-image']['tmp_name']);
+			$images = new ImageHelper;
+			$main_img = $_FILES['main-image']['tmp_name'];
 
-			if ($size === false) {
-				$uploadOk = 0;
-			} else {
-				$uploadOk = 1;
-			}
+			$upload_ok = $images->verifyImage($main_img);
 
-			if ($_FILES["main-image"]["size"] > 2000000) {
-				$uploadOk = 0;
-			}
-
-			if($image_type != 2 && $image_type != 3 && $image_type != 18 && $image_type != 1) {
-				$uploadOk = 0;
-			}
-
-			if($uploadOk) {
-				$main_img = $_FILES['main-image']['tmp_name'];
-				$images = new ImageHelper;
+			if($upload_ok) {
 				$results = $images->recipeMainImage($main_img, $recipe_id);
 
 				return $results;

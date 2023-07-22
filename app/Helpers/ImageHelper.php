@@ -24,6 +24,26 @@ class ImageHelper
 
 		return $result;
 	}
+	public function verifyImage($image)
+	{
+		$size = filesize($image);
+
+		if($size === false) {
+			return false;
+		}
+
+		if ($size > 2000000) {
+			return false;
+		}
+
+		$image_type = exif_imagetype($image);
+
+		if ($image_type != 2 && $image_type != 3 && $image_type != 18 && $image_type != 1) {
+			return false;
+		}
+
+		return true;
+	}
 	public function recipeMainImage($image, $recipe_id)
 	{
 		$location = 'recipes/' . $recipe_id . '/';
@@ -54,7 +74,18 @@ class ImageHelper
 
 		return $results;
 	}
-	public function directionImage($image, $recipe_id, $direction_id)
+	public function directionImage($image, $recipe_id, $img_name)
 	{
+		$location = 'recipes/' . $recipe_id . '/directions/';
+		$dir_img = new Image($image, true, '');
+
+		$dir_img->resize(800, 600, true, true);
+		$dir_jpg = $dir_img->dump('jpeg', 75);
+		$dir_webp = $dir_img->dump('webp', 75);
+
+		$results = array();
+
+		$results[] = $this->uploadImage($dir_jpg, $location . $img_name . '.jpg', 'image/jpeg');
+		$results[] = $this->uploadImage($dir_webp, $location . $img_name . '.webp', 'image/webp');
 	}
 }
