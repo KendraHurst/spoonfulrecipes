@@ -24,14 +24,14 @@
 			</li>
 		</ul>
 		<ul class="list-unstyled text-md-end text-center mx-2 my-0 my-md-2">
-			<li>
+			<!--<li>
 				<a class="nav-link my-2" href="#">Contact</a>
+			</li>-->
+			<li>
+				<a class="nav-link my-2" href="/terms">Terms</a>
 			</li>
 			<li>
-				<a class="nav-link my-2" href="#">Terms</a>
-			</li>
-			<li>
-				<a class="nav-link my-2" href="#">Privacy Policy</a>
+				<a class="nav-link my-2" href="/privacy">Privacy Policy</a>
 			</li>
 		</ul>
 
