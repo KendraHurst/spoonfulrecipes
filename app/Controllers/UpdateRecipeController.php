@@ -32,14 +32,14 @@ class UpdateRecipeController
 
 					echo $view->render('edit_recipe.php', null, compact('f3', 'view', 'recipe', 'ingredients', 'directions', 'author'));
 				} else {
-					header('Location: http://localhost:8000/');
+					header('Location: ' . $f3->get('siteurl'));
 				}
 			} else {
 				$recipe_list = $recipes->select('id, name', array('author = ?', $author['id']));
 				echo $view->render('select_recipe.php', null, compact('f3', 'view', 'recipe_list'));
 			}
 		} else {
-			header('Location: http://localhost:8000/login?from=edit-recipe');
+			header('Location: ' . $f3->get('siteurl') . '/login?from=edit-recipe');
 		}
 	}
 
@@ -48,9 +48,9 @@ class UpdateRecipeController
 		if(isset($_SESSION['user'])) {
 			$update = new UpdateRecipe();
 			$update->editRecipe($f3);
-			header('Location: http://localhost:8000/');
+			header('Location: ' . $f3->get('siteurl'));
 		} else {
-			header('Location: http://localhost:8000/login?from=edit-recipe');
+			header('Location: ' . $f3->get('siteurl') . '/login?from=edit-recipe');
 		}
 	}
 }
