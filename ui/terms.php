@@ -1,7 +1,7 @@
 <?php
 $page = [
-	'title' => 'A Title',
-	'description' => 'A description',
+	'title' => 'Spoonful Recipes Terms',
+	'description' => 'The terms and conditions for Spoonful Recipes',
 	'noindex' => true
 ];
 

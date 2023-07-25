@@ -3,8 +3,8 @@ use Helpers\RatingHelper;
 
 $rater = new RatingHelper();
 $page = [
-	'title' => 'A Title',
-	'description' => 'A description',
+	'title' => 'Spoonful Recipes: Food is for Everyone',
+	'description' => 'Spoonful Recipes is your destination for easy, accessible recipes',
 	'canonical' => 'https://www.spoonfulrecipes.com'
 ];
 

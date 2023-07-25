@@ -1,7 +1,7 @@
 <?php
 $page = [
-	'title' => 'A Title',
-	'description' => 'A description',
+	'title' => 'About Spoonful Recipes',
+	'description' => 'Learn about the team behind Spoonful Recipes',
 	'canonical' => 'https://www.spoonfulrecipes.com/about'
 ];
 

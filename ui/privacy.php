@@ -1,7 +1,7 @@
 <?php
 $page = [
-	'title' => 'A Title',
-	'description' => 'A description',
+	'title' => 'Spoonful Recipes Privacy Policy',
+	'description' => 'This is the privacy policy for Spoonful Recipes',
 	'noindex' => true
 ];
 
