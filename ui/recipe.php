@@ -225,7 +225,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 </script>
 <script>
 	function onSubmit(token) {
-		document.getElementById("review-form").submit();
+		document.getElementById("review-form").requestSubmit();
 	}
 </script>
 <?php
