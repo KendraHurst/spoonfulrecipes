@@ -189,7 +189,11 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 					Submit
 				</button>
 
-				<script src="https://www.google.com/recaptcha/api.js"></script>
+				<script
+					src="https://www.google.com/recaptcha/api.js"
+					async defer
+				>
+				</script>
 				<script>
 					function onSubmit(token) {
 						document.getElementById("review-form").submit();
