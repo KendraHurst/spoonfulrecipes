@@ -12,12 +12,12 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 <header class="header about-bg oswald d-flex flex-column text-center align-items-center justify-content-center">
 
-	<h1 class="text-white">About Us</h1>
-	<h2 class="text-light fs-2">The team behind our recipes</h2>
+	<h1 class="text-white mx-2">About Us</h1>
+	<h2 class="text-light fs-2 mx-2">The team behind our recipes</h2>
 
 </header>
 
-<main class="mx-5">
+<main class="mx-md-5 mx-1">
 
 	<div class="d-flex flex-md-row-reverse flex-column justify-around align-items-center">
 
@@ -26,9 +26,9 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<img src="<?=$f3->get('imgurl');?>about/spoonful-spices-2.jpg" alt="Strawberry and spoonful of sugar" class="my-md-5 my-4 px-md-5 px-4 w-100 h-auto content-image"/>
 		</picture>
 
-		<div class="m-4 m-md-5 fs-5">
+		<div class="m-3 m-md-5 fs-5">
 			<h3 class="oswald">Our Mission</h3>
-			<p class="m-4 m-md-5 fs-5">
+			<p class="m-3 m-md-5 fs-5">
 			Here at Spoonful Recipes, our commitment to accessibility is one of our top priorities. Because of this, we'll always strive to list alternative methods and substitutions you can make to our recipes in our recipes' content. While we strive to cover a broad range of restrictions, unfortunately we aren't able to cover everything. If you have an idea for how we can make our website or recipes more accessible, please feel free to reach out and let us know, and if it's feasible with our resources, we'd be happy to implement it.
 			</p>
 		</div>

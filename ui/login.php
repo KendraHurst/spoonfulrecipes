@@ -10,7 +10,7 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
 
-<div class="my-5">
+<div class="my-5" style="min-height: 60vh;">
 
 <?php
 if(isset($name)) {

@@ -53,13 +53,13 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	</div>
 </section>
 
-<main class="mx-5">
+<main class="mx-md-5 mx-1">
 	<div class="d-flex flex-md-row flex-column justify-around align-items-center">
 		<picture>
 			<source srcset="<?=$f3->get('imgurl');?>index/spoon-berry.webp" type="image/webp">
-			<img src="<?=$f3->get('imgurl');?>index/spoon-berry.jpg" alt="Strawberry and spoonful of sugar" class="my-md-5 my-4 px-md-5 px-4 w-100 h-auto content-image" width="700" height="700">
+			<img src="<?=$f3->get('imgurl');?>index/spoon-berry.jpg" alt="Strawberry and spoonful of sugar" class="my-md-5 my-4 px-md-5 px-3 w-100 h-auto content-image" width="700" height="700">
 		</picture>
-		<p class="m-4 m-md-5 fs-5">
+		<p class="m-3 m-md-5 fs-5">
 		Welcome to Spoonful Recipes, your destination for delicious recipes that cater to ability and time constraints. We strive to provide recipes with clear instructions that anyone can make, with helpful tips for how to modify or substitute to make it work for you. Whether you're a busy professionial with limited time, a parent who has to figure out how to put a dinner on the table that will fit dietary restrictions, or trying to find recipes that will work with restrictions on your abilities, Spoonful Recipes has you covered. From meal prep recipes to help you get ahead, to quick dinners you can throw together on a busy night, we have a variety of recipes to help you get through your week. <a href="/recipes">Check out our recipes</a> to find one that will work for you!
 		</p>
 	</div>
@@ -67,9 +67,9 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<!--<div class="d-flex flex-md-row-reverse flex-column justify-around align-items-center">
 		<picture>
 			<source srcset="<?=$f3->get('imgurl');?>index/spoonful-spices-1.webp" type="image/webp">
-			<img src="<?=$f3->get('imgurl');?>index/spoonful-spices-1.jpg" alt="Spoons full of spices" class="my-md-5 my-4 px-md-5 px-4 w-100 h-auto content-image" width="700" height="700">
+			<img src="<?=$f3->get('imgurl');?>index/spoonful-spices-1.jpg" alt="Spoons full of spices" class="my-md-5 my-4 px-md-5 px-3 w-100 h-auto content-image" width="700" height="700">
 		</picture>
-		<p class="m-4 m-md-5 fs-5">
+		<p class="m-3 m-md-5 fs-5">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis est quis lectus posuere, sollicitudin porttitor tellus fringilla. Nam dictum, eros eget convallis dictum, magna quam fringilla erat, id finibus lorem diam mattis sem. Aenean nisl eros, tincidunt nec dictum congue, suscipit ac metus. Donec tristique, libero nec placerat cursus, magna nunc pellentesque leo, suscipit rhoncus ligula nibh nec nunc. Suspendisse eleifend accumsan nibh quis lacinia. Mauris tristique mauris risus, sit amet fermentum dolor fermentum iaculis. Maecenas vehicula rutrum ipsum, sed tempor elit. Mauris nulla lorem, sollicitudin vel metus sit amet, aliquam ultricies dui. In nec cursus nulla, sed ullamcorper arcu. Praesent sodales semper pulvinar. Cras nec quam sit amet justo rutrum consectetur.
 		</p>
 	</div>-->

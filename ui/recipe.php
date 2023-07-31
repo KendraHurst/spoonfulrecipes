@@ -46,8 +46,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 </style>
 
 <header class="header recipe-page-bg oswald d-flex flex-column text-center align-items-center justify-content-center d-print-none">
-	<h1 class="text-white"><?=$recipe['name'];?></h1>
-	<h2 class="text-light fs-2"><?=$recipe['title'];?></h2>
+	<h1 class="text-white mx-2"><?=$recipe['name'];?></h1>
+	<h2 class="text-light fs-2 mx-2"><?=$recipe['title'];?></h2>
 </header>
 
 <div class="container text-start d-print-none">
