@@ -33,17 +33,23 @@ if(isset($name)) {
 	}
 	?>
 
-<form method="post" class="my-5">
-	<label for="username">Username</label>
-	<input name="username" id="username" type="username" required>
-	<label for="password">Password</label>
-	<input name="password" id="password" type="password" required>
+<form method="post" class="my-5 container">
+	<div class="my-2">
+		<label for="username" class="form-label">Username</label>
+		<input name="username" id="username" type="username" class="form-control" required>
+	</div>
+
+	<div class="my-2">
+		<label for="password" class="form-label">Password</label>
+		<input name="password" id="password" type="password" class="form-control" required>
+	</div>
+
 <?php if (isset($_GET['from'])) { ?>
 	<input hidden value="<?=$_GET['from'];?>" name="from">
 <?php } else { ?>
 	<input hidden value="login" name="from">
 <?php } ?>
-	<input type="submit" value="Login">
+	<input type="submit" class="btn btn-primary" value="Login">
 </form>
 
 <?php
