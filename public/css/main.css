@@ -1,10 +1,12 @@
 @font-face {
 	font-family: Montserrat;
+	font-display: swap;
 	src: url('/fonts/montserrat.ttf');
 }
 
 @font-face {
 	font-family: Oswald;
+	font-display: swap;
 	src: url('/fonts/oswald.ttf');
 }
 
