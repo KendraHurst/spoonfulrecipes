@@ -179,6 +179,11 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 				<label for="review-content" class="form-label">Content</label>
 				<textarea name="review-content" id="review-content" placeholder="Write a review..." class="form-control mb-4" rows="5" maxlength="5000"></textarea>
+				<div class="mb-4">
+					This site is protected by reCAPTCHA and the Google
+					<a href="https://policies.google.com/privacy">Privacy Policy</a> and
+					<a href="https://policies.google.com/terms">Terms of Service</a> apply.
+				</div>
 
 				<button
 					class="g-recaptcha btn btn-primary"
@@ -189,16 +194,6 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 					Submit
 				</button>
 
-				<script
-					src="https://www.google.com/recaptcha/api.js"
-					async defer
-				>
-				</script>
-				<script>
-					function onSubmit(token) {
-						document.getElementById("review-form").submit();
-					}
-				</script>
 			</form>
 		</section>
 
@@ -223,6 +218,16 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	</div>
 </div>
 
+<script
+	src="https://www.google.com/recaptcha/api.js"
+	async defer
+>
+</script>
+<script>
+	function onSubmit(token) {
+		document.getElementById("review-form").submit();
+	}
+</script>
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
 ?>

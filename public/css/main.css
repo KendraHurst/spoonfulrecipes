@@ -59,6 +59,8 @@
 	min-width: 40vw;
 }
 
+.grecaptcha-badge { visibility: hidden; }
+
 #editor {
 	height: 150px;
 }
