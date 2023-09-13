@@ -27,20 +27,24 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	.no-webp .recipe-page-bg {
 		background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>;?>/main.16x9.jpg');
 		background-size: 100%;
+		background-size: cover;
 	}
 	.webp .recipe-page-bg {
 		background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.16x9.webp');
 		background-size: 100%;
+		background-size: cover;
 	}
 
 	@media screen and (max-width: 767px) {
 		.no-webp .recipe-page-bg {
 			background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.jpg');
 			background-size: 100%;
+			background-size: cover;
 		}
 		.webp .recipe-page-bg {
 			background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.webp');
 			background-size: 100%;
+			background-size: cover;
 		}
 	}
 </style>
