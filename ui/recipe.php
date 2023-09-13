@@ -70,7 +70,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<img src="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
 			</picture>
 			<div class="col-12 col-md-6 p-3 p-md-4">
-				<h3 class="oswald fs-1 fw-bold text-primary mb-3"><?=$recipe['name'];?></h3>
+				<h3 class="oswald fs-1 fw-semibold text-primary mb-3"><?=$recipe['name'];?></h3>
 
 			<?php if($reviews) {
 				$ratings = [];
