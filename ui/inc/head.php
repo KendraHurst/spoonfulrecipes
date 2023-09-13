@@ -33,6 +33,9 @@
 	<link rel="stylesheet" href="/css/custom.css">
 	<link rel="shortcut icon" type="image/png" href="<?=$f3->get('imgurl');?>logos/favicon.png"/>
 
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6117958085618253"
+		 crossorigin="anonymous"></script>
+
 </head>
 <body class="text-gray-900 mont antialiased">
 <div class="page-wrapper">
