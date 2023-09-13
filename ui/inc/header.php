@@ -41,7 +41,12 @@
 				href="/recipes">Recipes</a>
 			</li>
 			<li class="nav-item mx-2 pb-1">
-				<input class="form-control me-2 rounded-pill" id="search-bar" type="search" placeholder="Search" aria-label="Search">
+				<form action="/results" class="input-group me-2">
+					<input class="form-control rounded-pill" id="search-bar" name="q" type="search" placeholder="Search" aria-label="Search">
+					<button type="submit" class="btn btn-primary rounded-pill ms-1">
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</button>
+				</form>
 			</li>
 		</ul>
 	</div>
