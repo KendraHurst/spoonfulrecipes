@@ -9,23 +9,10 @@
 
 <?php if (isset($page['canonical'])) { ?>
 	<link rel="canonical" href="<?=$page['canonical'] ?: "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
-<?php } ?>
-
-<?php if(isset($page['noindex']) && $page['noindex']) { ?>
+<?php elseif(isset($page['noindex']) && $page['noindex']) { ?>
 
 	<meta name="robots" content="noindex">
 
-<?php } else { ?>
-	<!--Analytics tag here-->
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7LLM0K0V95"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-7LLM0K0V95');
-	</script>
 <?php } ?>
 
 	<!--stylesheets-->
@@ -35,6 +22,16 @@
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6117958085618253"
 		 crossorigin="anonymous"></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-7LLM0K0V95"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-7LLM0K0V95');
+	</script>
 
 </head>
 <body class="text-gray-900 mont antialiased">
