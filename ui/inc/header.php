@@ -43,7 +43,7 @@
 			<li class="nav-item mx-2 pb-1">
 				<form action="/results" class="input-group me-2">
 					<input class="form-control rounded-pill" id="search-bar" name="q" type="search" placeholder="Search" aria-label="Search">
-					<button type="submit" class="btn btn-primary rounded-pill ms-1">
+					<button type="submit" class="btn btn-primary rounded-pill ms-1" aria-label="Submit Search">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</button>
 				</form>
