@@ -11,8 +11,6 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 <?php
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	?>
-<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
-<script src="js/new_recipe.js"></script>
 <style>
 	#directions-list .btn, #directions-list input {
 		line-height: 48px;
@@ -129,6 +127,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	</form>
 </div>
 
+<script src="js/ckeditor.js"></script>
+<script src="js/new_recipe.js"></script>
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
 ?>

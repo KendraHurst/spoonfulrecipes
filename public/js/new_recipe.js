@@ -1,11 +1,23 @@
 //CKEditor
-window.onload = () => {
-	ClassicEditor
-		.create( document.querySelector( '#editor' ), {
-		})
-		.catch( error => {
-			console.error( error );
-		} );
+ClassicEditor
+	.create( document.querySelector( '#editor' ), {
+		// Editor configuration.
+	} )
+	.then( editor => {
+		window.editor = editor;
+	} )
+	.catch( handleSampleError );
+
+function handleSampleError( error ) {
+	const issueUrl = 'https://github.com/ckeditor/ckeditor5/issues';
+
+	const message = [
+		'Oops, something went wrong!',
+		`Please, report the following error on ${ issueUrl } with the build id "lmd5ucblsjey-empkyjht6lqg" and the error stack trace:`
+	].join( '\n' );
+
+	console.error( message );
+	console.error( error );
 };
 
 //Dynamically add/remove ingredients
