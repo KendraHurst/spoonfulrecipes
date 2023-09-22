@@ -238,16 +238,22 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	</div>
 </div>
 
-<script
-	src="https://www.google.com/recaptcha/api.js"
-	async defer
->
-</script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <script>
 	function onSubmit(token) {
 		document.getElementById("review-form").requestSubmit();
 	}
+
+	window.addEventListener('load', (event) => {
+		const captchaScript = document.createElement('script');
+		const body = document.querySelector('body');
+
+		captchaScript.setAttribute('async', '');
+		captchaScript.setAttribute('defer', '');
+		captchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js');
+
+		body.appendChild(captchaScript);
+	});
 </script>
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
