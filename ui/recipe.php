@@ -244,7 +244,10 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		document.getElementById("review-form").requestSubmit();
 	}
 
-	window.addEventListener('load', (event) => {
+	const reviewForm = document.getElementById("review-form");
+
+	reviewForm.addEventListener('input', () => {
+
 		const captchaScript = document.createElement('script');
 		const body = document.querySelector('body');
 
@@ -253,7 +256,8 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		captchaScript.setAttribute('src', 'https://www.google.com/recaptcha/api.js');
 
 		body.appendChild(captchaScript);
-	});
+	},
+	{ once: true });
 </script>
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));
