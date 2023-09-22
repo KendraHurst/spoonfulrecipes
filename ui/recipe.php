@@ -68,6 +68,18 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<?=$view->raw($recipe['content']);?>
 		</main>
 
+		<!-- AddToAny BEGIN -->
+		<div class="a2a_kit a2a_kit_size_32 a2a_default_style d-print-none ms-2">
+			<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+			<a class="a2a_button_copy_link"></a>
+			<a class="a2a_button_email"></a>
+			<a class="a2a_button_print"></a>
+			<a class="a2a_button_facebook"></a>
+			<a class="a2a_button_pinterest"></a>
+			<a class="a2a_button_twitter"></a>
+		</div>
+		<!-- AddToAny END -->
+
 		<section id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
 			<picture class="col-12 col-md-6">
 				<source srcset="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.webp" type="image/webp">
@@ -227,6 +239,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	async defer
 >
 </script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
 <script>
 	function onSubmit(token) {
 		document.getElementById("review-form").requestSubmit();
