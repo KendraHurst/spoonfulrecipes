@@ -5,7 +5,11 @@ $rater = new RatingHelper();
 $page = [
 	'title' => 'Recipes list for Spoonful Recipes',
 	'description' => 'Check out all the great recipes available at Spoonful Recipes',
-	'canonical' => 'https://www.spoonfulrecipes.com/recipes'
+	'canonical' => 'https://www.spoonfulrecipes.com/recipes',
+	'preload' => [
+		'href' => 'https://spoonful-recipes.s3.us-east-2.amazonaws.com/recipes/recipe-bg-sm.webp',
+		'as' => 'image'
+	]
 ];
 
 $f3->set('page', $page);

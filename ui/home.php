@@ -5,7 +5,11 @@ $rater = new RatingHelper();
 $page = [
 	'title' => 'Spoonful Recipes: Food is for Everyone',
 	'description' => 'Spoonful Recipes is your destination for easy, accessible recipes',
-	'canonical' => 'https://www.spoonfulrecipes.com'
+	'canonical' => 'https://www.spoonfulrecipes.com',
+	'preload' => [
+		'href' => 'https://spoonful-recipes.s3.us-east-2.amazonaws.com/index/home-bg-sm.webp',
+		'as' => 'image'
+	]
 ];
 
 $f3->set('page', $page);

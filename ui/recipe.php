@@ -8,7 +8,11 @@ $schema = new SchemaHelper();
 $page = [
 	'title' => $recipe['title'],
 	'description' => $recipe['description'],
-	'canonical' => 'https://www.spoonfulrecipes.com/recipes/' . $recipe['id'] . '/' . Web::instance()->slug($recipe['name'])
+	'canonical' => 'https://www.spoonfulrecipes.com/recipes/' . $recipe['id'] . '/' . Web::instance()->slug($recipe['name']),
+	'preload' => [
+		'href' => $f3->get('imgurl') . 'recipes/' . $recipe['id'] . '/main.1x1.webp',
+		'as' => 'image'
+	]
 ];
 
 $notes = [];

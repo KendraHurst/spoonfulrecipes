@@ -2,7 +2,11 @@
 $page = [
 	'title' => 'About Spoonful Recipes',
 	'description' => 'Learn about the team behind Spoonful Recipes',
-	'canonical' => 'https://www.spoonfulrecipes.com/about'
+	'canonical' => 'https://www.spoonfulrecipes.com/about',
+	'preload' => [
+		'href' => 'https://spoonful-recipes.s3.us-east-2.amazonaws.com/about/about-bg-sm.webp',
+		'as' => 'image'
+	]
 ];
 
 $f3->set('page', $page);

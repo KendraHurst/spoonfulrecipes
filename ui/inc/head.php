@@ -7,6 +7,15 @@
 	<meta name="description" content="<?=$page['description'];?>">
 	<title><?=$page['title'];?></title>
 
+<?php if (isset($page['preload'])) { ?>
+	<link
+		rel="preload"
+	<?php foreach($page['preload'] as $attr=>$value) {
+		echo $attr . '="' . $value . '"';
+	} ?>
+	>
+<?php } ?>
+
 <?php if (isset($page['canonical'])) { ?>
 	<link rel="canonical" href="<?=$page['canonical'] ?: "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
 <?php } elseif(isset($page['noindex']) && $page['noindex']) { ?>
