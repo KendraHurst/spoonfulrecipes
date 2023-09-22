@@ -9,7 +9,7 @@
 
 <?php if (isset($page['canonical'])) { ?>
 	<link rel="canonical" href="<?=$page['canonical'] ?: "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];?>">
-<?php elseif(isset($page['noindex']) && $page['noindex']) { ?>
+<?php } elseif(isset($page['noindex']) && $page['noindex']) { ?>
 
 	<meta name="robots" content="noindex">
 
