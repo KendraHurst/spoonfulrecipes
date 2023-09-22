@@ -1,3 +1,6 @@
+<?php
+header_remove("X-Powered-By");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
