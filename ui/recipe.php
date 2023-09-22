@@ -101,17 +101,17 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				echo $rater->starsPlusRating($ratings);
 			} ?>
 
-				<p class="m-0"><b>Author: </b><?=$author;?></p>
-				<p class="m-0"><b>Publish Date: </b><?=date("M j, Y", strtotime($recipe['publish_date']));?></p>
-				<p class="m-0"><b>Prep Time: </b><?=$recipe['prep_time'];?> min</p>
-				<p class="m-0"><b>Cook Time: </b><?=$recipe['cook_time'];?> min</p>
-				<p class="m-0"><b>Total Time: </b><?=$recipe['prep_time'] + $recipe['cook_time'];?> min</p>
-				<p class="m-0"><b>Yield: </b><?=$recipe['yield'];?></p>
+				<p class="m-0"><span style="font-weight:bold">Author: </span><?=$author;?></p>
+				<p class="m-0"><span style="font-weight:bold">Publish Date: </span><?=date("M j, Y", strtotime($recipe['publish_date']));?></p>
+				<p class="m-0"><span style="font-weight:bold">Prep Time: </span><?=$recipe['prep_time'];?> min</p>
+				<p class="m-0"><span style="font-weight:bold">Cook Time: </span><?=$recipe['cook_time'];?> min</p>
+				<p class="m-0"><span style="font-weight:bold">Total Time: </span><?=$recipe['prep_time'] + $recipe['cook_time'];?> min</p>
+				<p class="m-0"><span style="font-weight:bold">Yield: </span><?=$recipe['yield'];?></p>
 				<?php if(isset($recipe['calories'])) { ?>
-				<p class="m-0"><b>Calories: </b><?=$recipe['calories'];?></p>
+				<p class="m-0"><span style="font-weight:bold">Calories: </span><?=$recipe['calories'];?></p>
 				<?php }
 				if(isset($recipe['category'])) { ?>
-				<p class="m-0"><b>Type: </b><?=ucwords($recipe['category']);?></p>
+				<p class="m-0"><span style="font-weight:bold">Type: </span><?=ucwords($recipe['category']);?></p>
 				<?php } ?>
 			</div>
 			<div class="col-12 col-md-6 px-3 px-4 px-md-4 pt-md-4">
@@ -119,7 +119,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<ul class="my-3 list-group list-group-flush">
 				<?php foreach ($ingredients as $ingredient) { ?>
 					<li class="list-group-item px-0 bg-light">
-					<b><?=$ingredient['measure'];?></b> <?=$ingredient['ingredient'];?>
+					<span style="font-weight:bold"><?=$ingredient['measure'];?></span> <?=$ingredient['ingredient'];?>
 					<?php if($ingredient['note']) {
 						$notes[] = $ingredient['note'];
 						echo(str_repeat('*', count($notes)));
