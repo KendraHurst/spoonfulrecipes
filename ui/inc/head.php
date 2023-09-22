@@ -25,8 +25,10 @@
 <?php } ?>
 
 	<!--stylesheets-->
-	<link rel="stylesheet" href="/css/main.css">
-	<link rel="stylesheet" href="/css/custom.css">
+	<style>
+		<?=file_get_contents('public/css/main.css');?>
+		<?=file_get_contents('public/css/custom.css');?>
+	</style>
 	<link rel="shortcut icon" type="image/png" href="<?=$f3->get('imgurl');?>logos/favicon.png"/>
 
 	<!-- Google tag (gtag.js) -->

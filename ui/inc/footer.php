@@ -42,11 +42,19 @@
 	
 </footer>
 
-<script src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/lozad.min.js"></script>
-<script src="/js/modernizr-custom.js"></script>
-<script src="/js/main.js"></script>
+<script>
+	<?=file_get_contents('public/js/bootstrap.min.js');?>
+</script>
+<script>
+	<?=file_get_contents('public/js/lozad.min.js');?>
+</script>
+<script>
+	<?=file_get_contents('public/js/modernizr-custom.js');?>
+</script>
+<script>
+	<?=file_get_contents('public/js/main.js');?>
+</script>
+<script async src="https://kit.fontawesome.com/d6ec043418.js" crossorigin="anonymous"></script>
 
 </div>
 </body>
