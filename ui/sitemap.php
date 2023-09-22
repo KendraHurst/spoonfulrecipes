@@ -19,10 +19,4 @@ use Web;
 	</url>
 	<?php
 	} ?>
-	<url>
-		<loc>https://www.spoonfulrecipes.com/privacy</loc>
-	</url>
-	<url>
-		<loc>https://www.spoonfulrecipes.com/terms</loc>
-	</url>
 </urlset>
