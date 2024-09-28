@@ -14,10 +14,10 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
 
-<div class="container my-5" style="min-height:60vh">
+<main id="main" class="container my-5" style="min-height:60vh">
 	<h1 class="text-primary oswald fs-1"><?=$message;?></h1>
 	<a href="/" class="btn btn-primary rounded pill px-3">Go Back to Homepage</a>
-</div>
+</main>
 
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));

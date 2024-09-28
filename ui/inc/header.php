@@ -1,3 +1,6 @@
+<section aria-label="skip link">
+    <a class="visually-hidden" href="#main">Skip to main content</a>
+</section>
 <nav class="navbar navbar-expand-md bg-light container-fluid d-print-none">
 	<a class="navbar-brand fs-2 fw-bold text-primary" href="/">
 		<picture>

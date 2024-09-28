@@ -19,9 +19,9 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 <script async src="https://cse.google.com/cse.js?cx=640663e4f4e17494c">
 </script>
 
-<div class="m-2" style="min-height:200px;">
+<main id="main" class="m-2" style="min-height:200px;">
 	<div class="gcse-searchresults-only"></div>
-</div>
+</main>
 
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));

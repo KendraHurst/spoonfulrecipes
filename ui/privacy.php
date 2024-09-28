@@ -10,7 +10,7 @@ echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
 
-<div class="container my-5">
+<main class="container my-5" id="main">
 <h1>Privacy Policy</h1>
 <p>Last updated: July 23, 2023</p>
 <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
@@ -189,7 +189,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 <p>By email: info@spoonfulrecipes.com</p>
 </li>
 </ul>
-</div>
+</main>
 
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));

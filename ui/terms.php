@@ -9,7 +9,7 @@ $f3->set('page', $page);
 echo $view->render('inc/head.php', null, compact('f3', 'view', 'page'));
 echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 ?>
-<div class="container my-5">
+<main id="main" class="container my-5">
 <h1><strong>Terms and Conditions</strong></h1>
 
 <p>Welcome to Spoonful Recipes!</p>
@@ -131,7 +131,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 <p>As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</p>
 
-</div>
+</main>
 
 <?php
 echo $view->render('inc/footer.php', null, compact('f3', 'view', 'page'));

@@ -22,7 +22,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<h2 class="text-light fs-2">Easy budget friendly recipes, one Spoonful at a time</h2>
 </header>
 
-<section>
+<main id="main">
 
 	<h3 class="text-primary oswald fs-1 fw-bold mx-4 mx-md-5 my-3">Latest Recipes</h3>
 	<div class="row mx-4 mx-md-5 my-3">
@@ -55,9 +55,9 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<?php } ?>
 
 	</div>
-</section>
+</main>
 
-<main class="mx-md-5 mx-1">
+<section aria-label="About" class="mx-md-5 mx-1">
 	<div class="d-flex flex-md-row flex-column justify-around align-items-center">
 		<picture>
 			<source srcset="<?=$f3->get('imgurl');?>index/spoon-berry.webp" type="image/webp">

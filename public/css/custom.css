@@ -8,7 +8,7 @@
 }
 
 .navbar .nav-link {
-  color: #4782D4;
+  color: #2F6EC6;
 }
 
 .navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .nav-link.active {
@@ -44,7 +44,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --bs-blue: #4782D4;
+  --bs-blue: #2F6EC6;
   --bs-indigo: #6610f2;
   --bs-purple: #5247D4;
   --bs-pink: #9947D4;
@@ -68,7 +68,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #5247D4;
-  --bs-secondary: #4782D4;
+  --bs-secondary: #2F6EC6;
   --bs-success: #198754;
   --bs-info: #9947D4;
   --bs-warning: #ffc107;
@@ -2895,8 +2895,8 @@ textarea.form-control-lg {
 
 .btn-secondary {
   --bs-btn-color: #000;
-  --bs-btn-bg: #4782D4;
-  --bs-btn-border-color: #4782D4;
+  --bs-btn-bg: #2F6EC6;
+  --bs-btn-border-color: #2F6EC6;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #6395da;
   --bs-btn-hover-border-color: #598fd8;
@@ -2906,8 +2906,8 @@ textarea.form-control-lg {
   --bs-btn-active-border-color: #598fd8;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #4782D4;
-  --bs-btn-disabled-border-color: #4782D4;
+  --bs-btn-disabled-bg: #2F6EC6;
+  --bs-btn-disabled-border-color: #2F6EC6;
 }
 
 .btn-success {
@@ -3030,19 +3030,19 @@ textarea.form-control-lg {
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: #4782D4;
-  --bs-btn-border-color: #4782D4;
+  --bs-btn-color: #2F6EC6;
+  --bs-btn-border-color: #2F6EC6;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #4782D4;
-  --bs-btn-hover-border-color: #4782D4;
+  --bs-btn-hover-bg: #2F6EC6;
+  --bs-btn-hover-border-color: #2F6EC6;
   --bs-btn-focus-shadow-rgb: 71, 130, 212;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #4782D4;
-  --bs-btn-active-border-color: #4782D4;
+  --bs-btn-active-bg: #2F6EC6;
+  --bs-btn-active-border-color: #2F6EC6;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #4782D4;
+  --bs-btn-disabled-color: #2F6EC6;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #4782D4;
+  --bs-btn-disabled-border-color: #2F6EC6;
   --bs-gradient: none;
 }
 
@@ -6737,7 +6737,7 @@ textarea.form-control-lg {
 }
 
 .link-secondary {
-  color: #4782D4 !important;
+  color: #2F6EC6 !important;
 }
 .link-secondary:hover, .link-secondary:focus {
   color: #6c9bdd !important;

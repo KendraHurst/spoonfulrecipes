@@ -58,19 +58,16 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<h2 class="text-light fs-2 mx-2"><?=$recipe['title'];?></h2>
 </header>
 
-<div class="container text-start d-print-none">
-</div>
-<div class="d-flex justify-content-center d-print-none">
-	<button class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="window.print()">Print Recipe</button>
-	<button class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="document.getElementById('recipe-section').scrollIntoView({behavior: 'smooth'})">Jump to Recipe</button>
-</div>
+<section id="main" aria-label="recipe navigation" class="d-flex justify-content-center d-print-none">
+	<button role="button" class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" onclick="window.print()">Print Recipe</button>
+	<a class="btn btn-primary rounded-pill fw-bold px-3 my-4 mx-2" href="#recipe-section">Jump to Recipe</a>
+</section>
 
 <div class="container">
 
 	<div class="col-12">
-		<main class="recipe-content my-4 my-md-5 d-print-none">
+		<section aria-label="recipe content" class="recipe-content my-4 my-md-5 d-print-none">
 		<?=$view->raw($recipe['content']);?>
-		</main>
 
         <?php
         if ($recipe['video']) {
@@ -84,7 +81,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		</section>
 
 		<!-- AddToAny BEGIN -->
-		<div class="a2a_kit a2a_kit_size_32 a2a_default_style d-print-none ms-2">
+		<section aria-label="social sharing" class="a2a_kit a2a_kit_size_32 a2a_default_style d-print-none ms-2">
 			<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
 			<a class="a2a_button_copy_link"></a>
 			<a class="a2a_button_email"></a>
@@ -92,10 +89,10 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<a class="a2a_button_facebook"></a>
 			<a class="a2a_button_pinterest"></a>
 			<a class="a2a_button_twitter"></a>
-		</div>
+		</section>
 		<!-- AddToAny END -->
 
-		<section id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
+		<main id="recipe-section" class="row my-4 mx-2 my-md-5 rounded-3 bg-light fs-5">
 			<picture class="col-12 col-md-6">
 				<source srcset="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.webp" type="image/webp">
 				<img src="<?=$f3->get('imgurl');?>recipes/<?=$recipe['id'];?>/main.1x1.jpg" class="w-100 p-3 p-md-4 h-auto" alt="<?=$recipe['name'];?>">
@@ -196,8 +193,9 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<?php } ?>
 			</div>
 			<?php } ?>
-		</section>
+		</main>
 
+		<section aria-label="leave a review" class="mx-2 my-4 d-print-none">
 	<?php if (isset($_GET['submitted'])) { ?>
 
 		<div class="alert alert-primary d-print-none" id="review-reply" role="alert">
@@ -206,29 +204,28 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<?php } else { ?>
 
-		<section class="mx-2 my-4 d-print-none">
-			<h3 class="mb-3">Leave a Review</h2>
-			<form action="/add-review" method="post" id="review-form">
+            <h3 class="mb-3" id="review-title">Leave a Review</h3>
+			<form action="/add-review" method="post" id="review-form" aria-labelledby="review-title">
 				<input hidden name="recipe-id" value="<?=$recipe['id'];?>">
 				<input hidden name="recipe-page" value="<?=Web::instance()->slug($recipe['name']);?>">
 
-				<div class="form-label">Star Rating*</div>
-				<div class="star-rating form-check-inline text-primary mb-3">
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="1" id="rating-1" aria-label="1 star" required>
-					<label for="rating-1" class="rating-star"></label>
+				<fieldset class="star-rating form-check-inline text-primary mb-3">
+                    <legend class="form-label text-black">Star Rating*</legend>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="1" id="rating-1" required>
+					<label for="rating-1" class="rating-star"><span class="visually-hidden">1 star</span></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="2" id="rating-2" aria-label="2 stars" required>
-					<label for="rating-2" class="rating-star"></label>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="2" id="rating-2" required>
+					<label for="rating-2" class="rating-star"><span class="visually-hidden">2 stars</span></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="3" id="rating-3" aria-label="3 stars" required>
-					<label for="rating-3" class="rating-star"></label>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="3" id="rating-3" required>
+					<label for="rating-3" class="rating-star"><span class="visually-hidden">3 stars</span></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="4" id="rating-4" aria-label="4 stars" required>
-					<label for="rating-4" class="rating-star"></label>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="4" id="rating-4" required>
+					<label for="rating-4" class="rating-star"><span class="visually-hidden">4 stars</span></label>
 
-					<input class="rating m-0 p-0" type="radio" name="review-rating" value="5" id="rating-5" aria-label="5 stars" required>
-					<label for="rating-5" class="rating-star"></label>
-				</div>
+					<input class="rating m-0 p-0" type="radio" name="review-rating" value="5" id="rating-5" required>
+					<label for="rating-5" class="rating-star"><span class="visually-hidden">5 stars</span></label>
+				</fieldset>
 				<br />
 
 				<div class="row">
@@ -265,7 +262,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 	<?php }
 	if($reviews) { ?>
-		<section class="mx-2 my-4 d-print-none">
+		<section aria-label="reviews" class="mx-2 my-4 d-print-none">
 			<h3 class="mb-3">Reviews</h2>
 
 		<?php foreach ($reviews as $review) { ?>

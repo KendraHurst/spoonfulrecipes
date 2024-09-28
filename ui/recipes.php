@@ -22,7 +22,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 	<h2 class="text-light fs-2">A list of recipes by Spoonful</h2>
 </header>
 
-<main class="row">
+<main class="row" id="main">
 <?php foreach ($recipes as $recipe) {
 	$slug = Web::instance()->slug($view->raw($recipe['name']));
 	$ratings = [];

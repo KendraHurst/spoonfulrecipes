@@ -21,7 +21,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 </header>
 
-<main class="mx-md-5 mx-1">
+<main id="main" class="mx-md-5 mx-1">
 
 	<div class="d-flex flex-md-row-reverse flex-column justify-around align-items-center">
 
