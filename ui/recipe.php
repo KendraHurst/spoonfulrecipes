@@ -130,8 +130,18 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<ul class="my-3 list-group list-group-flush">
 				<?php foreach ($ingredients as $ingredient) { ?>
 					<li class="list-group-item px-0 bg-light">
-					<span style="font-weight:bold"><?=$ingredient['measure'];?></span> <?=$ingredient['ingredient'];?>
-					<?php if($ingredient['note']) {
+					<span style="font-weight:bold"><?=$ingredient['measure'];?></span>
+                    <?=$ingredient['ingredient'];?>
+
+					<?php
+                    if($ingredient['alternative']) {
+                    ?>
+                    <span style="font-weight:bold">or</span>
+                    <?=$ingredient['alternative'];?>
+                    <?php
+                    }
+
+					if($ingredient['note']) {
 						$notes[] = $ingredient['note'];
 						echo(str_repeat('*', count($notes)));
 					} ?>

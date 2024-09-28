@@ -119,6 +119,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 				<input hidden name="ingredients-ids[]">
 				<input type="text" name="ingredients-measures[]" class="form-control" placeholder="Measure*" style="max-width:150px!important" required>
 				<input type="text" name="ingredients-ingredients[]" class="form-control" placeholder="Ingredient*" required>
+				<input type="text" name="ingredients-alternatives[]" class="form-control" placeholder="Ingredient Alternative">
 				<input type="text" name="ingredients-notes[]" class="form-control notes" placeholder="Notes">
 				<select name="ingredients-optional[]" class="form-select" style="max-width:100px!important">
 					<option selected value="false">Req</option>
@@ -133,6 +134,7 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 					<input hidden name="ingredients-ids[]" value="<?=$ingredient['id'];?>">
 					<input type="text" name="ingredients-measures[]" value="<?=$ingredient['measure'];?>" class="form-control" placeholder="Measure*" style="max-width:150px!important" required>
 					<input type="text" name="ingredients-ingredients[]" value="<?=$ingredient['ingredient'];?>" class="form-control" placeholder="Ingredient*" required>
+                    <input type="text" name="ingredients-alternatives[]" class="form-control" placeholder="Ingredient Alternative" value="<?=$ingredient['alternative'];?>">
 					<input type="text" name="ingredients-notes[]" value="<?=$ingredient['note'];?>" class="form-control notes" placeholder="Notes">
 					<select name="ingredients-optional[]" class="form-select" style="max-width:100px!important">
 

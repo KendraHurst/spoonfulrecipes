@@ -57,6 +57,7 @@ class UpdateRecipe
 
 		$ids = $_POST['ingredients-ids'];
 		$ingredients = $_POST['ingredients-ingredients'];
+		$alternatives = $_POST['ingredients-alternatives'];
 		$measures = $_POST['ingredients-measures'];
 		$optional = $_POST['ingredients-optional'];
 		$notes = $_POST['ingredients-notes'];
@@ -78,6 +79,7 @@ class UpdateRecipe
 
 			$ingredient->measure = $measures[$i];
 			$ingredient->ingredient = $ingredients[$i];
+			$ingredient->alternative = $alternatives[$i] ?: null;
 
 			if ($optional[$i] === "true") {
 				$ingredient->optional = 1;
