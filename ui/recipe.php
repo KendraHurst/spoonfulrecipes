@@ -143,7 +143,17 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 
 					if($ingredient['note']) {
 						$notes[] = $ingredient['note'];
-						echo(str_repeat('*', count($notes)));
+                        ?>
+						<sup>
+                            <a
+                                id="note-<?=count($notes);?>"
+                                aria-label="jump to footnote <?=count($notes);?>"
+                                href="#footnote-<?=count($notes);?>"
+                            >
+                                <?=count($notes);?>
+                            </a>
+                        </sup>
+                        <?php
 					} ?>
 					</li>
 				<?php } ?>
@@ -157,7 +167,17 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 					<?=$direction['text'];?>
 					<?php if($direction['note']) {
 						$notes[] = $direction['note'];
-						echo(str_repeat('*', count($notes)));
+                        ?>
+						<sup>
+                            <a
+                                id="note-<?=count($notes);?>"
+                                aria-label="jump to footnote <?=count($notes);?>"
+                                href="#footnote-<?=count($notes);?>"
+                            >
+                                <?=count($notes);?>
+                            </a>
+                        </sup>
+                        <?php
 					} ?>
 					</li>
 					<?php } ?>
@@ -167,7 +187,12 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<div class="col-12 px-3 pt-3 px-md-4 pt-md-4">
 				<h4>Notes</h5>
 				<?php foreach($notes as $key=>$note) { ?>
-					<p><?=str_repeat('*', $key + 1) . ' ' . $note;?></p>
+					<p id="footnote-<?=($key + 1);?>">
+                        <sup><?=($key + 1);?></sup> <?=$note;?>
+                        <a class="d-print-none" href="#note-<?=($key + 1);?>" aria-label="Back to recipe">
+                            <i class="fa-solid fa-turn-up"></i>
+                        </a>
+                    </p>
 				<?php } ?>
 			</div>
 			<?php } ?>
