@@ -72,6 +72,17 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 		<?=$view->raw($recipe['content']);?>
 		</main>
 
+        <?php
+        if ($recipe['video']) {
+        ?>
+        <h3>Video</h3>
+        <iframe src="<?=$recipe['video'];?>" loading="lazy" title="<?=$recipe['name'];?> video" width="560" height="315">
+            <a href="<?=$recipe['video'];?>" target="_blank">View Video (opens in a new tab)</a>
+        </iframe>
+        <?php
+        }?>
+		</section>
+
 		<!-- AddToAny BEGIN -->
 		<div class="a2a_kit a2a_kit_size_32 a2a_default_style d-print-none ms-2">
 			<a class="a2a_dd" href="https://www.addtoany.com/share"></a>

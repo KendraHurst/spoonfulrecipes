@@ -39,6 +39,7 @@ class AddRecipe
 		$recipe->cuisine = trim($_POST['cuisine']) ?: null;
 		$recipe->keywords = trim($_POST['keywords']) ?: null;
 		$recipe->content = trim($_POST['content']);
+		$recipe->video = $_POST['video'] ?: null;
 
 		if (isset($_POST['active'])) {
 			$recipe->active = 1;

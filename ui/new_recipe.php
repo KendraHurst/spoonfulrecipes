@@ -118,6 +118,12 @@ echo $view->render('inc/header.php', null, compact('f3', 'view', 'page'));
 			<input type="file" name="main-image" accept="image/png, image/jpeg" class="form-control">
 		</div>
 
+		<label for="video" class="form-label">Video</label>
+		<div class="input-group mb-3">
+			<div class="input-group-text bg-light text-primary"><i class="fa-solid fa-video"></i></div>
+			<input type="text" name="video" class="form-control" value="<?=$recipe['video'];?>">
+		</div>
+
 		<div class="form-check form-switch mb-3">
 			<input class="form-check-input" type="checkbox" role="switch" name="active">
 			<label class="form-check-label" for="active">Active</label>
